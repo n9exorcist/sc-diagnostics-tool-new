@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import * as XLSX from "xlsx";
-import Papa from "papaparse";
 import { useDispatch } from "react-redux";
 
 function UploadClientKPIInputs() {
@@ -28,7 +27,7 @@ function UploadClientKPIInputs() {
 
   return (
     <div className="mb-3">
-      <label>Upload Benchmark Inputs (Template1_Benchmark Inputs):</label>
+      <label>Upload Benchmark Inputs (Template3_Benchmark Inputs):</label>
       <input type="file" accept=".xlsx,.xls,.csv" onChange={handleFileUpload} />
       {fileName && (
         <small className="text-success ms-2">Uploaded: {fileName}</small>

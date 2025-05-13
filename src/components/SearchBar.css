@@ -1,0 +1,38 @@
+/* src/components/SearchBar.css */
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #f0f0f0;
+    border-radius: 20px;
+    padding: 10px 20px;
+    margin: 20px;
+}
+
+.search-input {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    background-color: transparent;
+}
+
+.icon-container {
+    display: flex;
+    gap: 10px;
+    margin-left: 10px;
+}
+
+.icon-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: #333;
+    font-size: 20px;
+    padding: 5px;
+    border-radius: 50%;
+}
+
+.icon-button:hover {
+    background-color: #ddd; }

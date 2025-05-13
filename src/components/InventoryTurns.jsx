@@ -6,14 +6,14 @@ const InventoryTurns = () => {
   // Sample data
   const [data, setData] = useState({
     q1: 9.9,
-    median: 6.0,
+    q2: 6.0,
     q3: 4.0,
     clientValue: 8.03,
   });
 
   // Function to calculate the position of the client value
   const getClientPosition = () => {
-    const { q1, median, q3, clientValue } = data;
+    const { q1, q2, q3, clientValue } = data;
     const totalRange = q1 - q3; // Range between Q1 and Q3
     const clientDiff = clientValue - q3; // Difference between client value and Q3
     const percentage = (clientDiff / totalRange) * 100; // Percentage within the range
@@ -27,7 +27,7 @@ const InventoryTurns = () => {
         <h3>Inventory Turns - Total</h3>
         <div className="unit-info">
           <span>Unit - # Hrs Or Days</span>
-          <span>| Sample - 158</span>
+          <span>| Sample</span>
         </div>
       </div>
 
@@ -40,11 +40,11 @@ const InventoryTurns = () => {
           <div className="value">{data.q1}</div>
         </div>
 
-        {/* Median */}
-        <div className="quartile median">
+        {/* Q2 */}
+        <div className="quartile q2">
           <div className="line"></div>
-          <div className="label">Median</div>
-          <div className="value">{data.median}</div>
+          <div className="label">Q2</div>
+          <div className="value">{data.q2}</div>
         </div>
 
         {/* Q3 */}

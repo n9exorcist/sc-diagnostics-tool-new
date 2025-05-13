@@ -10,6 +10,7 @@ const initialState = {
 function rootReducer(state = initialState, action) {
   switch (action.type) {
     case "SET_MY_DIAGNOSTIC_DATA":
+      console.log("Setting myDiagnosticData:", action.payload);
       return { ...state, myDiagnosticData: action.payload };
     case "SET_BENCHMARK_DATA":
       return { ...state, benchmarkData: action.payload };

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import * as XLSX from "xlsx";
-import Papa from "papaparse";
 import { useDispatch } from "react-redux";
 
 function UploadMyDiagnostic() {
