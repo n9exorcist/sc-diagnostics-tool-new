@@ -1,0 +1,78 @@
+.inventory-turns {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.unit-info {
+    display: flex;
+    gap: 10px;
+}
+
+.quartile-line {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    border-top: 2px solid #000;
+}
+
+.quartile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.quartile .line {
+    width: 100%;
+    height: 2px;
+    background-color: #000;
+    transform: rotate(90deg);
+}
+
+.quartile .label {
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.quartile .value {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.client-value {
+    position: absolute;
+    top: -10%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    pointer-events: none;
+}
+
+.client-value .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #ff00ff;
+    border: 2px solid #fff;
+}
+
+.client-value .value {
+    font-size: 12px;
+    color: #ff00ff;
+    margin-top: 5px;
+}
+
+.client-value .score {
+    font-size: 16px;
+    font-weight: bold;
+    color: #ff00ff; }
