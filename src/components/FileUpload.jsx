@@ -24,9 +24,18 @@ const FileUpload = ({ onFileUpload }) => {
         const worksheetName = workbook.SheetNames[0];
         const worksheet = workbook.Sheets[worksheetName];
 
-        const data = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
+        const jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
 
-        onFileUpload(data, file); // Pass both data and file
+        // Remove empty rows and convert all values to strings
+        const cleanedData = jsonData
+          .filter(
+            (row) =>
+              row.length > 0 &&
+              row.some((cell) => cell !== null && cell !== undefined)
+          )
+          .map((row) => row.map((cell) => String(cell || "")));
+
+        onFileUpload(cleanedData, file);
         e.target.value = null; // Reset input
       } catch (err) {
         console.error("Error parsing Excel file:", err);

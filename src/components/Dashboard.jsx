@@ -16,22 +16,55 @@ function Dashboard() {
   const [excelData, setExcelData] = useState(null);
   const [uploadedFile, setUploadedFile] = useState(null); // <-- New state
 
-  const handleSendMessage = (text) => {
-    console.log("text", text);
+  const handleSendMessage = async (text) => {
     const newMessage = { sender: "user", text };
-    console.log("newMessage", newMessage);
     setMessages((prev) => [...prev, newMessage]);
 
-    // Simulate bot response
-    setTimeout(() => {
-      let reply;
-      if (excelData && Array.isArray(excelData) && excelData.length > 0) {
-        reply = `Bot: I received your Excel file with ${excelData.length} rows. Ask me anything about it!`;
-      } else {
-        reply = "Bot: I'm ready to help you!";
-      }
-      setMessages((prev) => [...prev, { sender: "bot", text: reply }]);
-    }, 500);
+    if (!excelData || !Array.isArray(excelData)) {
+      setTimeout(() => {
+        setMessages((prev) => [
+          ...prev,
+          { sender: "bot", text: "Bot: I'm ready to help you!" },
+        ]);
+      }, 500);
+      return;
+    }
+
+    // ✅ Validate user message
+    if (!text || typeof text !== "string" || text.trim().length < 2) {
+      setMessages((prev) => [
+        ...prev,
+        { sender: "bot", text: "Bot: Please ask a meaningful question." },
+      ]);
+      return;
+    }
+
+    console.log("Sending to API:", {
+      message: text,
+      excelDataSample: excelData.slice(0, 5),
+      excelDataType: typeof excelData,
+      isArray: Array.isArray(excelData),
+    });
+
+    try {
+      const response = await fetch("http://localhost:5000/api/chat", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ message: text, excelData }),
+      });
+
+      const data = await response.json();
+
+      setMessages((prev) => [...prev, { sender: "bot", text: data.reply }]);
+    } catch (err) {
+      console.error("Error calling AI:", err);
+      setMessages((prev) => [
+        ...prev,
+        { sender: "bot", text: "Bot: Sorry, something went wrong. Try again." },
+      ]);
+    }
   };
 
   const handleFileUpload = (data, file) => {
