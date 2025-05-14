@@ -2,21 +2,31 @@ import React from "react";
 import { useState } from "react";
 import "./InventoryTurns.css"; // Import your CSS file for styling
 
-const InventoryTurns = () => {
+const InventoryTurns = ({ kpi = {} }) => {
   // Sample data
+  // const [data, setData] = useState({
+  //   q1: 9.9,
+  //   q2: 6.0,
+  //   q3: 4.0,
+  //   clientValue: 8.03,
+  // });
+
   const [data, setData] = useState({
-    q1: 9.9,
-    q2: 6.0,
-    q3: 4.0,
-    clientValue: 8.03,
+    q1: kpi?.q1 ?? 9.9,
+    q2: kpi?.median ?? 6.0,
+    q3: kpi?.q3 ?? 4.0,
+    clientValue: kpi?.client ?? 8.03,
   });
 
   // Function to calculate the position of the client value
   const getClientPosition = () => {
-    const { q1, q2, q3, clientValue } = data;
-    const totalRange = q1 - q3; // Range between Q1 and Q3
-    const clientDiff = clientValue - q3; // Difference between client value and Q3
-    const percentage = (clientDiff / totalRange) * 100; // Percentage within the range
+    const q1 = data.q1 ?? 9.9;
+    const q3 = data.q3 ?? 4.0;
+    const clientValue = data.clientValue ?? 8.03;
+
+    const totalRange = q1 - q3;
+    const clientDiff = clientValue - q3;
+    const percentage = (clientDiff / totalRange) * 100;
     return `${percentage}%`;
   };
 
@@ -26,8 +36,7 @@ const InventoryTurns = () => {
       <div className="header">
         <h3>Inventory Turns - Total</h3>
         <div className="unit-info">
-          <span>Unit - # Hrs Or Days</span>
-          <span>| Sample</span>
+          <span>Sample</span>
         </div>
       </div>
 
@@ -57,7 +66,9 @@ const InventoryTurns = () => {
         {/* Client Value */}
         <div
           className="client-value"
-          style={{ transform: `translateX(${getClientPosition()})` }}
+          style={{
+            transform: `translateX(${getClientPosition()})`,
+          }}
         >
           <div className="dot"></div>
           <div className="value">Client</div>

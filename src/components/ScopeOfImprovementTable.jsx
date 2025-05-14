@@ -1,23 +1,19 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-function ScopeOfImprovementTable() {
-  const benchmarkData = useSelector((state) => state.benchmarkData);
-  const clientKPIData = useSelector((state) => state.clientKPIData);
-
-  // Dummy calculation logic
-  const improvementData = benchmarkData.map((item, idx) => {
-    const clientValue = clientKPIData[idx]?.value || 0;
-    const improvementScopeMin = item.Q1 - clientValue;
-    const improvementScopeMax = item.Median - clientValue;
+function ScopeOfImprovementTable({ data = [] }) {
+  const tableData = data.map((row) => {
+    const clientValue = parseFloat(row.client) || 0;
+    const scopeMin = row.q1 - clientValue;
+    const scopeMax = row.median - clientValue;
 
     return {
-      kpi: item.KPI,
-      q1: item.Q1,
-      median: item.Median,
+      kpi: row.name,
+      q1: row.q1,
+      median: row.median,
       client: clientValue,
-      scopeMin: improvementScopeMin.toFixed(2),
-      scopeMax: improvementScopeMax.toFixed(2),
+      scopeMin: scopeMin.toFixed(2),
+      scopeMax: scopeMax.toFixed(2),
     };
   });
 
@@ -34,7 +30,7 @@ function ScopeOfImprovementTable() {
         </tr>
       </thead>
       <tbody>
-        {improvementData.map((row, idx) => (
+        {tableData.map((row, idx) => (
           <tr key={idx}>
             <td>{row.kpi}</td>
             <td>{row.q1}</td>

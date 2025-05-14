@@ -15,6 +15,9 @@ function Dashboard() {
   const [messages, setMessages] = useState([]);
   const [excelData, setExcelData] = useState(null);
   const [uploadedFile, setUploadedFile] = useState(null); // <-- New state
+  const [kpiData, setKpiData] = useState([]);
+
+  console.log("KPI Data:", kpiData);
 
   const handleSendMessage = async (text) => {
     const newMessage = { sender: "user", text };
@@ -71,6 +74,34 @@ function Dashboard() {
     setExcelData(data);
     setUploadedFile(file);
 
+    if (data.length > 1) {
+      const headers = data[0]; // ["Function", "KPI", "Units", ..., "Q1", "Q2", "Q3"]
+
+      const kpiRows = data.slice(1).map((row) => {
+        const kpiName = row[1]?.trim() || "";
+        const client = !isNaN(parseFloat(row[2])) ? parseFloat(row[2]) : null;
+        const q1 = !isNaN(parseFloat(row[5])) ? parseFloat(row[5]) : null;
+        const median = !isNaN(parseFloat(row[6])) ? parseFloat(row[6]) : null;
+        const q3 = !isNaN(parseFloat(row[7])) ? parseFloat(row[7]) : null;
+
+        return {
+          name: kpiName,
+          client,
+          q1,
+          median,
+          q3,
+        };
+      });
+
+      // Filter out empty or incomplete rows
+      const validKpiRows = kpiRows.filter(
+        (row) =>
+          row.name && row.q1 !== null && row.median !== null && row.q3 !== null
+      );
+
+      setKpiData(validKpiRows); // Save parsed KPI data
+    }
+
     const userMessage = { sender: "user", text: "Uploaded an Excel file." };
     const botMessage = {
       sender: "bot",
@@ -109,7 +140,7 @@ function Dashboard() {
 
       <div className="mb-4">
         <h4>KPI Quartile Plot</h4>
-        <KPIQuartileChart />
+        <KPIQuartileChart data={kpiData} />
       </div>
 
       <hr />
@@ -122,14 +153,18 @@ function Dashboard() {
       <hr />
 
       <div className="mb-4">
-        <InventoryTurns />
+        {kpiData.length > 0 && (
+          <InventoryTurns
+            kpi={kpiData.find((d) => d.name === "Inventory Turns") || {}}
+          />
+        )}
       </div>
 
       <hr />
 
       <div className="mb-4">
         <h4>Scope of Improvement</h4>
-        <ScopeOfImprovementTable />
+        <ScopeOfImprovementTable data={kpiData} />
       </div>
 
       <hr />
