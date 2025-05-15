@@ -10,6 +10,7 @@ import InventoryTurns from "./InventoryTurns";
 import SearchBar from "./SearchBar";
 import Chat from "./Chat";
 import FileUpload from "./FileUpload";
+import D3KPIBarChart from "./D3KPIBarChart";
 
 function Dashboard() {
   const [messages, setMessages] = useState([]);
@@ -55,11 +56,15 @@ function Dashboard() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ message: text, excelData }),
+        body: JSON.stringify({
+          message: text,
+          excelData: excelData.map((row) =>
+            row.map((cell) => String(cell || ""))
+          ),
+        }),
       });
 
       const data = await response.json();
-
       setMessages((prev) => [...prev, { sender: "bot", text: data.reply }]);
     } catch (err) {
       console.error("Error calling AI:", err);
@@ -140,7 +145,8 @@ function Dashboard() {
 
       <div className="mb-4">
         <h4>KPI Quartile Plot</h4>
-        <KPIQuartileChart data={kpiData} />
+        {/* <KPIQuartileChart data={kpiData} /> */}
+        {kpiData.length > 0 && <D3KPIBarChart data={kpiData} />}
       </div>
 
       <hr />
