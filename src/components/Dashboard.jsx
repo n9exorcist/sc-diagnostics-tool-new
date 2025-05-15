@@ -11,6 +11,8 @@ import SearchBar from "./SearchBar";
 import Chat from "./Chat";
 import FileUpload from "./FileUpload";
 import D3KPIBarChart from "./D3KPIBarChart";
+import KPIScatterPlot from "./KPIScatterPlot";
+import KPIScoreRadarChart from "./KPIScoreRadarChart";
 
 function Dashboard() {
   const [messages, setMessages] = useState([]);
@@ -147,13 +149,8 @@ function Dashboard() {
         <h4>KPI Quartile Plot</h4>
         {/* <KPIQuartileChart data={kpiData} /> */}
         {kpiData.length > 0 && <D3KPIBarChart data={kpiData} />}
-      </div>
-
-      <hr />
-
-      <div className="mb-4">
-        <h4>Generate Reports</h4>
-        <ReportGenerator />
+        <KPIScatterPlot data={kpiData} />
+        <KPIScoreRadarChart kpiData={kpiData} />
       </div>
 
       <hr />
@@ -174,6 +171,11 @@ function Dashboard() {
       </div>
 
       <hr />
+
+      <div className="mb-4">
+        <h4>Generate Reports</h4>
+        <ReportGenerator />
+      </div>
 
       <div className="app">
         <h2>🤖 Search Bot with Excel Upload</h2>
