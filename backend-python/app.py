@@ -16,6 +16,7 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 print("OpenAI API Key:", openai.api_key)
 
 
+
 @app.route("/api/chat", methods=["POST"])
 def chat():
     data = request.json

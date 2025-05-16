@@ -1,0 +1,30 @@
+.chat {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.insights-section {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.chat-window {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.save-response-btn {
+    background-color: #6a5acd;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.save-response-btn:hover {
+    background-color: #5d4b9c; }

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import UploadMyDiagnostic from "./UploadMyDiagnostic";
 import UploadBenchmarkInputs from "./UploadBenchmarkInputs";
 import UploadClientKPIInputs from "./UploadClientKPIInputs";
@@ -13,12 +13,16 @@ import FileUpload from "./FileUpload";
 import D3KPIBarChart from "./D3KPIBarChart";
 import KPIScatterPlot from "./KPIScatterPlot";
 import KPIScoreRadarChart from "./KPIScoreRadarChart";
+import "./Dashboard.css"; // Import your CSS file for styling
+import InsightPanel from "./InsightPanel"; // Import the new InsightPanel component
 
 function Dashboard() {
   const [messages, setMessages] = useState([]);
   const [excelData, setExcelData] = useState(null);
   const [uploadedFile, setUploadedFile] = useState(null); // <-- New state
   const [kpiData, setKpiData] = useState([]);
+  const [detailedInsights, setDetailedInsights] = useState([]);
+  const [summarizedInsights, setSummarizedInsights] = useState([]);
 
   console.log("KPI Data:", kpiData);
 
@@ -107,6 +111,30 @@ function Dashboard() {
       );
 
       setKpiData(validKpiRows); // Save parsed KPI data
+
+      // Generate insights
+      const detailedInsights = kpiRows.map((kpi) => {
+        return `KPI: ${kpi.name}, Client Value: ${kpi.client}, Q1: ${kpi.q1}, Median: ${kpi.median}, Q3: ${kpi.q3}`;
+      });
+
+      const calculateAverage = (kpiRows, key) => {
+        const values = kpiRows
+          .filter((kpi) => !isNaN(kpi[key]))
+          .map((kpi) => kpi[key]);
+        const sum = values.reduce((acc, val) => acc + val, 0);
+        return values.length > 0 ? (sum / values.length).toFixed(2) : 0;
+      };
+
+      const summarizedInsights = [
+        `Total KPIs: ${kpiRows.length}`,
+        `Average Client Value: ${calculateAverage(kpiRows, "client")}`,
+        `Average Q1: ${calculateAverage(kpiRows, "q1")}`,
+        `Average Median: ${calculateAverage(kpiRows, "median")}`,
+        `Average Q3: ${calculateAverage(kpiRows, "q3")}`,
+      ];
+
+      setDetailedInsights(detailedInsights);
+      setSummarizedInsights(summarizedInsights);
     }
 
     const userMessage = { sender: "user", text: "Uploaded an Excel file." };
@@ -133,7 +161,7 @@ function Dashboard() {
   };
 
   return (
-    <Container className="mt-5">
+    <Container fluid className="mt-5 p-4">
       <h1 className="text-center mb-4">SC Rapid Diagnostics Factory Tool</h1>
 
       <div className="mb-4">
@@ -155,47 +183,69 @@ function Dashboard() {
 
       <hr />
 
-      <div className="mb-4">
+      <Row className="mb-4">
         {kpiData.length > 0 && (
           <InventoryTurns
             kpi={kpiData.find((d) => d.name === "Inventory Turns") || {}}
           />
         )}
-      </div>
+      </Row>
 
       <hr />
 
-      <div className="mb-4">
+      <Row className="mb-4">
         <h4>Scope of Improvement</h4>
         <ScopeOfImprovementTable data={kpiData} />
-      </div>
+      </Row>
 
       <hr />
 
-      <div className="mb-4">
+      <Row className="mb-4">
         <h4>Generate Reports</h4>
         <ReportGenerator />
-      </div>
+      </Row>
 
-      <div className="app">
-        <h2>🤖 Search Bot with Excel Upload</h2>
-        <Chat messages={messages} />
-        <SearchBar onSendMessage={handleSendMessage} />
-        <FileUpload onFileUpload={handleFileUpload} />
-        {uploadedFile && (
-          <div className="uploaded-file">
-            <span>📄 Uploaded: {uploadedFile.name}</span>
-            <button
-              type="button"
-              className="remove-button"
-              onClick={handleRemoveFile}
-              aria-label="Remove file"
-            >
-              🗑️
-            </button>
+      {/* Main Content Split: Insights + Chat */}
+      <Row className="app mt-4 align-items-start">
+        {/* Left Side: Detailed + Summarized Insights */}
+        <Col md={4} className="insights-container pe-4">
+          <div className="mb-4">
+            <InsightPanel
+              detailedInsights={detailedInsights}
+              summarizedInsights={summarizedInsights}
+            />
           </div>
-        )}
-      </div>
+        </Col>
+
+        {/* Right Side: Chatbot Interface */}
+        <Col md={8} className="chat-container ps-4 border-start">
+          <h2>🤖 Search Bot with Excel Upload</h2>
+
+          {/* Chat Messages */}
+          <Chat messages={messages} />
+
+          {/* Search Bar */}
+          <SearchBar onSendMessage={handleSendMessage} />
+
+          {/* File Upload */}
+          <FileUpload onFileUpload={handleFileUpload} />
+
+          {/* Uploaded File Info */}
+          {uploadedFile && (
+            <div className="uploaded-file mt-2">
+              <span>📄 Uploaded: {uploadedFile.name}</span>
+              <button
+                type="button"
+                className="btn btn-sm btn-outline-danger ms-2"
+                onClick={handleRemoveFile}
+                aria-label="Remove file"
+              >
+                🗑️
+              </button>
+            </div>
+          )}
+        </Col>
+      </Row>
     </Container>
   );
 }

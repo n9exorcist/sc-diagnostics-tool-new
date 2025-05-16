@@ -1,0 +1,38 @@
+.insights-container {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.chat-container {
+    background-color: #fff;
+    padding: 15px;
+    border-left: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.list-group-item {
+    font-size: 0.9rem;
+    padding: 0.5rem 0.75rem;
+}
+
+.list-group-flush> :not(:last-child)::after {
+    border-bottom: 1px solid #dee2e6; }
+
+        .insights-container {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            height: fit-content;
+        }
+    
+        .chat-container {
+            background-color: #fff;
+            padding: 15px;
+            border-left: 1px solid #ddd;
+            border-radius: 8px;
+        }
+    
+        .list-group-item {
+            font-size: 0.9rem;
+            padding: 0.5rem 0.75rem;     }

@@ -1,4 +1,5 @@
 {
     "gpt3.apiKey": "org-LCnlmsrt7yaiGOgymGjLpvSX",
-    "CodeGPT.apiKey": "Azure"
+    "CodeGPT.apiKey": "Azure",
+    "python.REPL.enableREPLSmartSend": false
 }
