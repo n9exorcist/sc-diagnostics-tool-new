@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import "./Homepage.css"; // Import your CSS file for styling
 import { Link } from "react-router-dom";
+import LoginButton from "./LoginButton";
+import ProfileContent from "./ProfileContent";
+import { useMsal } from "@azure/msal-react";
 
 // Sample data for cards
 const cards = [
@@ -44,6 +47,8 @@ const cards = [
 const Homepage = () => {
   const [file, setFile] = useState(null);
   const [selectedFunction, setSelectedFunction] = useState("All");
+  const { accounts } = useMsal();
+  const isAuthenticated = accounts.length > 0;
 
   const handleFileUpload = (e) => {
     const selectedFile = e.target.files[0];
@@ -60,7 +65,7 @@ const Homepage = () => {
   return (
     <div className="container mt-5 pt-5">
       <h1 className="text-center mb-4">Supply Chain & Operations</h1>
-
+      {isAuthenticated ? <ProfileContent /> : <LoginButton />}
       {/* Dropdown Filter */}
       <div className="mb-4 text-center">
         <label htmlFor="sc-filter" className="form-label fw-bold">
