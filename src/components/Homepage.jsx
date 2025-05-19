@@ -1,8 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import "./Homepage.css"; // Import your CSS file for styling
 import { Link } from "react-router-dom";
-import LoginButton from "./LoginButton";
-import ProfileContent from "./ProfileContent";
 import { useMsal } from "@azure/msal-react";
 
 // Sample data for cards
@@ -49,14 +47,19 @@ const Homepage = () => {
   const [selectedFunction, setSelectedFunction] = useState("All");
   const { accounts } = useMsal();
   const isAuthenticated = accounts.length > 0;
+  const [uploading, setUploading] = useState(false);
 
-  const handleFileUpload = (e) => {
+  const handleFileUpload = useCallback((e) => {
+    setUploading(true);
     const selectedFile = e.target.files[0];
     if (selectedFile) {
-      alert(`File selected: ${selectedFile.name}`);
-      setFile(selectedFile);
+      setTimeout(() => {
+        alert(`File selected: ${selectedFile.name}`);
+        setFile(selectedFile);
+        setUploading(false);
+      }, 1000); // Simulated delay
     }
-  };
+  }, []);
 
   const filteredCards = cards.filter((card) => {
     return selectedFunction === "All" || card.category === selectedFunction;
@@ -65,7 +68,7 @@ const Homepage = () => {
   return (
     <div className="container mt-5 pt-5">
       <h1 className="text-center mb-4">Supply Chain & Operations</h1>
-      {isAuthenticated ? <ProfileContent /> : <LoginButton />}
+      {isAuthenticated && <p>Welcome back, {accounts[0].name}!</p>}
       {/* Dropdown Filter */}
       <div className="mb-4 text-center">
         <label htmlFor="sc-filter" className="form-label fw-bold">
@@ -95,9 +98,10 @@ const Homepage = () => {
           </p>
           <button
             className="btn btn-primary me-2"
+            disabled={uploading}
             onClick={() => document.getElementById("benchmarkInput").click()}
           >
-            Upload Benchmark Inputs
+            {uploading ? "Uploading..." : "Upload Benchmark Inputs"}
           </button>
           <button
             className="btn btn-secondary"
@@ -111,6 +115,7 @@ const Homepage = () => {
             accept=".xlsx,.xls"
             style={{ display: "none" }}
             onChange={handleFileUpload}
+            aria-label="Upload Benchmark Inputs"
           />
         </div>
         <div className="col-md-6 d-flex justify-content-end align-items-center">
