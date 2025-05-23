@@ -1,0 +1,40 @@
+/* assets/css/layout.css */
+body {
+    font-family: 'Graphik', sans-serif;
+    background: linear-gradient(to right, var(--color-purple-core), var(--color-aqua));
+}
+
+.header {
+    color: var(--color-white);
+    text-align: center;
+}
+
+.main-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.left-column,
+.right-column {
+    width: 30%;
+}
+
+.center-column {
+    width: 40%;
+    text-align: center;
+}
+
+.circle-diagram {
+    border-radius: 50%;
+    background-color: var(--color-purple-light);
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.scenario-box {
+    background-color: var(--color-purple-lightest);
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); }

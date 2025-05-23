@@ -1,3 +1,28 @@
+/* Reset default margins/padding */
+/* 
+Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Graphik', sans-serif;
+    color: var(--color-black);
+    background-color: var(--color-white);
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 .App {
   text-align: center;
 }
@@ -83,4 +108,99 @@ body {
 
 .file-upload {
   margin-top: 10px;
+}
+
+/* Header Style */
+
+.header {
+  background-color: #6a1bcb;
+  /* Purple accent color */
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.header-actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* Content Container */
+
+.content-container {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.content-container h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.content-container p {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Button Styles */
+
+button {
+  background-color: #ffbbff;
+  /* Light purple */
+  color: #6a1bcb;
+  /* Dark purple */
+  border: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 5px;
+}
+
+button:hover {
+  background-color: #ff99ff;
+  /* Slightly darker purple on hover */
+}
+
+/* Prompt Input Field */
+
+.prompt-input {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.prompt-input input[type="text"] {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.prompt-input button {
+  background-color: #6a1bcb;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-left: 10px;
+}
+
+.prompt-input button:hover {
+  background-color: #5511a3;
+  /* Darker purple on hover */
 }

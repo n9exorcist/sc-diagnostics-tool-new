@@ -1,0 +1,12 @@
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: var(--color-black);
+    color: var(--color-white);
+  }
+
+  .highlight {
+    background-color: var(--color-purple-lightest);
+    color: var(--color-black);
+  }
+}

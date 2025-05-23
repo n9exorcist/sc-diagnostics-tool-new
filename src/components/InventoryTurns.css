@@ -76,3 +76,46 @@
     font-size: 16px;
     font-weight: bold;
     color: #ff00ff; }
+
+        .quartile-line {
+            position: relative;
+            height: 50px;
+            margin-top: var(--space-medium);
+            background-color: var(--color-gray-light);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+    
+        .quartile {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: var(--color-purple-dark);
+            text-align: center;
+        }
+    
+        .quartile.q1 {
+            left: 0%;
+        }
+    
+        .quartile.q2 {
+            left: 50%;
+        }
+    
+        .quartile.q3 {
+            left: 100%;
+        }
+    
+        .client-value {
+            position: absolute;
+            top: 10px;
+            transform: translateX(-50%);
+            text-align: center;
+        }
+    
+        .dot {
+            width: 16px;
+            height: 16px;
+            background-color: var(--color-blue);
+            border-radius: 50%;     }

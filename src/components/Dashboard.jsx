@@ -164,7 +164,7 @@ function Dashboard() {
     <Container fluid className="mt-5 p-4">
       <h1 className="text-center mb-4">SC Rapid Diagnostics Factory Tool</h1>
 
-      <div className="mb-4">
+      <div className="mb-4 section">
         <h4>Upload Templates</h4>
         <UploadMyDiagnostic />
         <UploadBenchmarkInputs />
@@ -173,7 +173,7 @@ function Dashboard() {
 
       <hr />
 
-      <div className="mb-4">
+      <div className="mb-4 section">
         <h4>KPI Quartile Plot</h4>
         {/* <KPIQuartileChart data={kpiData} /> */}
         {kpiData.length > 0 && <D3KPIBarChart data={kpiData} />}
@@ -183,7 +183,7 @@ function Dashboard() {
 
       <hr />
 
-      <Row className="mb-4">
+      <Row className="mb-4 section">
         {kpiData.length > 0 && (
           <InventoryTurns
             kpi={kpiData.find((d) => d.name === "Inventory Turns") || {}}
@@ -193,20 +193,20 @@ function Dashboard() {
 
       <hr />
 
-      <Row className="mb-4">
+      <Row className="mb-4 section">
         <h4>Scope of Improvement</h4>
         <ScopeOfImprovementTable data={kpiData} />
       </Row>
 
       <hr />
 
-      <Row className="mb-4">
+      <Row className="mb-4 section">
         <h4>Generate Reports</h4>
         <ReportGenerator />
       </Row>
 
       {/* Main Content Split: Insights + Chat */}
-      <Row className="app mt-4 align-items-start">
+      <Row className="app mt-4 section align-items-start">
         {/* Left Side: Detailed + Summarized Insights */}
         <Col md={4} className="insights-container pe-4">
           <div className="mb-4">

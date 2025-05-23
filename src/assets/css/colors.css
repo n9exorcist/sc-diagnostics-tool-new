@@ -1,0 +1,18 @@
+/* assets/css/colors.css */
+:root {
+  --color-purple-core: #A100FF;
+  --color-purple-dark: #7500C0;
+  --color-purple-darker: #460073;
+  --color-purple-light: #C2A3FF;
+  --color-purple-lightest: #E6DCFF;
+
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+  --color-gray-dark: #818180;
+  --color-gray-medium: #CFCFCF;
+  --color-gray-light: #F1F1EF;
+
+  --color-pink: #FF50A0;
+  --color-blue: #224BFF;
+  --color-aqua: #05F2DB;
+}

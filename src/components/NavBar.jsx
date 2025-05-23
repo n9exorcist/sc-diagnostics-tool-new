@@ -2,6 +2,7 @@ import React from "react";
 import { useMsal } from "@azure/msal-react";
 import { loginRequest } from "../authConfig";
 import { Container, Navbar, Nav, Button } from "react-bootstrap";
+import "./Navbar.css";
 
 const NavBar = () => {
   const { instance, accounts } = useMsal();
@@ -16,12 +17,18 @@ const NavBar = () => {
   };
 
   return (
-    <Navbar bg="dark" variant="dark" expand="lg">
+    <Navbar style={{ backgroundColor: "var(--color-purple-core)" }}>
       <Container>
-        <Navbar.Brand href="/">Supply Chain Tool</Navbar.Brand>
+        <Navbar.Brand style={{ color: "var(--color-white)" }} href="/">
+          Supply Chain Tool
+        </Navbar.Brand>
         <Nav className="me-auto">
-          <Nav.Link href="/">Home</Nav.Link>
-          <Nav.Link href="/tool">Tool</Nav.Link>
+          <Nav.Link href="/" style={{ color: "var(--color-white)" }}>
+            Home
+          </Nav.Link>
+          <Nav.Link href="/tool" style={{ color: "var(--color-white)" }}>
+            Tool
+          </Nav.Link>
         </Nav>
         <div className="d-flex">
           {isAuthenticated ? (
@@ -32,7 +39,18 @@ const NavBar = () => {
               </Button>
             </>
           ) : (
-            <Button onClick={handleLogin} variant="outline-light">
+            <Button
+              onClick={handleLogin}
+              variant="outline-light"
+              style={{
+                backgroundColor: "var(--color-purple-dark)",
+                color: "var(--color-white)",
+                border: "none",
+                padding: "8px 16px",
+                borderRadius: "4px",
+                cursor: "pointer",
+              }}
+            >
               Login
             </Button>
           )}

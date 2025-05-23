@@ -23,9 +23,11 @@ function UploadBenchmarkInputs() {
       const sheet = workbook.Sheets[sheetName];
       const parsedData = XLSX.utils.sheet_to_json(sheet);
 
+      // REQ_DF_004 - RETAINING ORIGINAL KPI DEFINITIONS ON RE-UPLOAD
       // Merge with existing data to retain descriptions
       const mergedData = parsedData.map((row) => {
         const existingKPI = benchmarkData.find((kpi) => kpi.name === row.KPI);
+        console.log("Existing KPI:", existingKPI);
         return {
           name: row.KPI,
           description:

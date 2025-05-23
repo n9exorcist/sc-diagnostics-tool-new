@@ -67,7 +67,7 @@ const Homepage = () => {
 
   return (
     <div className="container mt-5 pt-5">
-      <h1 className="text-center mb-4">Supply Chain & Operations</h1>
+      <h1 className="text-center mb-4 highlight">Supply Chain & Operations</h1>
       {isAuthenticated && <p>Welcome back, {accounts[0].name}!</p>}
       {/* Dropdown Filter */}
       <div className="mb-4 text-center">

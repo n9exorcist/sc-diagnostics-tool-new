@@ -1,0 +1,35 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Graphik:wght@400;500;600;700&display=swap');
+
+body {
+  font-family: 'Graphik', sans-serif;
+  color: var(--color-black);
+  background-color: var(--color-white);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+h1 {
+  font-size: 80px;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 32px;
+  font-weight: 400;
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+p, li {
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.caption {
+  font-size: 8px;
+  font-weight: 400;
+}

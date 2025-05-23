@@ -1,0 +1,13 @@
+
+.highlight {
+  background-color: var(--color-purple-core);
+  color: var(--color-white);
+  padding: 0.25em 0.5em;
+  font-weight: bold;
+}
+
+.highlight-block {
+  background-color: var(--color-purple-light);
+  padding: 1em;
+  margin: 1em 0;
+}

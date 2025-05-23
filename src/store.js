@@ -1,28 +1,34 @@
 import { configureStore } from "@reduxjs/toolkit";
+import benchmarkReducer from "./slices/benchmarkSlice";
+import clientReducer from "./slices/clientSlice";
 
+// Initial state
 const initialState = {
   myDiagnosticData: [],
-  benchmarkData: [],
-  clientKPIData: [],
-  kpiResults: [],
+  benchmarkData: [], // Will be managed by benchmarkSlice.reducer
+  clientKPIData: [], // Will be managed by clientSlice.reducer
 };
 
 function rootReducer(state = initialState, action) {
   switch (action.type) {
     case "SET_MY_DIAGNOSTIC_DATA":
-      console.log("Setting myDiagnosticData:", action.payload);
-      return { ...state, myDiagnosticData: action.payload };
-    case "SET_BENCHMARK_DATA":
-      return { ...state, benchmarkData: action.payload };
-    case "SET_CLIENT_KPI_DATA":
-      return { ...state, clientKPIData: action.payload };
-    case "SET_KPI_RESULTS":
-      return { ...state, kpiResults: action.payload };
+      return {
+        ...state,
+        myDiagnosticData: action.payload,
+      };
+
     default:
-      return state;
+      // Let each slice handle its own key
+      return {
+        ...state,
+        benchmarkData: benchmarkReducer(state.benchmarkData, action),
+        clientKPIData: clientReducer(state.clientKPIData, action),
+      };
   }
 }
 
-const store = configureStore({ reducer: rootReducer });
+const store = configureStore({
+  reducer: rootReducer,
+});
 
 export default store;

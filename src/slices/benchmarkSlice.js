@@ -9,7 +9,7 @@ export const benchmarkSlice = createSlice({
   },
   reducers: {
     setBenchmarkData: (state, action) => {
-      state.data = action.payload;
+      return action.payload;
     },
     clearBenchmarkData: (state) => {
       state.data = [];

@@ -1,0 +1,15 @@
+
+:root {
+  --space-small: 8px;
+  --space-medium: 16px;
+  --space-large: 32px;
+}
+
+.section {
+  padding: var(--space-large);
+  margin: var(--space-large) 0;
+}
+
+.logo-container {
+  margin: var(--space-medium);
+}

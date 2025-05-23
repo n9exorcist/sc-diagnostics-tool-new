@@ -1,6 +1,8 @@
+// components/UploadClientKPIInputs.jsx
 import React, { useState } from "react";
 import * as XLSX from "xlsx";
 import { useDispatch } from "react-redux";
+import { setClientData } from "../slices/clientSlice";
 
 function UploadClientKPIInputs() {
   const [fileName, setFileName] = useState("");
@@ -18,7 +20,16 @@ function UploadClientKPIInputs() {
       const sheet = workbook.Sheets[sheetName];
       const parsedData = XLSX.utils.sheet_to_json(sheet);
 
-      dispatch({ type: "SET_BENCHMARK_DATA", payload: parsedData });
+      // Format client data
+      const cleanedClientData = parsedData.map((row) => ({
+        name: row.KPI,
+        client: parseFloat(row.Value),
+        description: row.Description_of_the_KPI,
+        units: row.Units,
+      }));
+
+      // Dispatch to Redux
+      dispatch(setClientData(cleanedClientData));
       setFileName(file.name);
     };
 
@@ -27,7 +38,7 @@ function UploadClientKPIInputs() {
 
   return (
     <div className="mb-3">
-      <label>Upload Benchmark Inputs (Template3_Benchmark Inputs):</label>
+      <label>Upload Client KPI Inputs (Template2)</label>
       <input type="file" accept=".xlsx,.xls,.csv" onChange={handleFileUpload} />
       {fileName && (
         <small className="text-success ms-2">Uploaded: {fileName}</small>

@@ -1,0 +1,19 @@
+/* assets/css/buttons.css */
+.btn-primary {
+    background-color: var(--color-purple-core) !important;
+    color: var(--color-white) !important;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: var(--color-purple-darker) !important;
+}
+
+.btn-secondary {
+    background-color: var(--color-purple-lightest) !important;
+    color: var(--color-black) !important;
+    border: none;
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-purple-light) !important; }
