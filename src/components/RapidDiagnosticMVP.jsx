@@ -12,32 +12,29 @@ const RapidDiagnosticMVP = () => {
       <div className="main-content">
         {/* Left Section: Inputs */}
         <div className="left-section">
-          <p className="description">
-            Client gets individual links for providing inputs in myD, VIP and
-            CDI benchmarks
-          </p>
-          <div className="input-box">
-            <h3>myDiagnostic</h3>
-            <p>DIAGNOSTIC QUESTIONNAIRE FOR Plan, Source & Deliver</p>
-          </div>
-          <div className="input-box">
-            <h3>VIP</h3>
-            <p>Peer Financial Analysis</p>
-          </div>
-          <div className="input-box">
-            <h3>CDI/Manual</h3>
-            <p>
-              Benchmarks for top 3 KPIs each across Plan, Source, Fulfil &
-              Deliver
-            </p>
-          </div>
-          <div className="input-box">
-            <h3>Sales order data</h3>
-            <p>RAW sales order data from ERP or excel for OTIF calculation</p>
-          </div>
-          <div className="input-box data-source">
-            <h3>&lt;Data source&gt;</h3>
-            <p>&lt;Any other Input/data identified the MVP&gt;</p>
+          <div class="flowchart">
+            <div class="flow-box purple">myDiagnostic</div>
+            <div class="flow-desc">
+              Diagnostic Questionnaire for Plan, Source & Deliver
+            </div>
+
+            <div class="flow-box purple">VIP</div>
+            <div class="flow-desc">Peer Financial Analysis</div>
+
+            <div class="flow-box purple">CDI/Manual</div>
+            <div class="flow-desc">
+              Benchmarks for top 3 KPIs each across Plan, Fulfill & Source
+            </div>
+
+            <div class="flow-box purple">Sales order data</div>
+            <div class="flow-desc">
+              Raw sales order data from ERP or excel for OTIF calculation
+            </div>
+
+            <div class="flow-box purple">&lt;Data source&gt;</div>
+            <div class="flow-desc">
+              &lt;Any other input/data identified during MVP&gt;
+            </div>
           </div>
         </div>
 
@@ -57,9 +54,18 @@ const RapidDiagnosticMVP = () => {
                 solution
               </p>
             </div>
-            <div className="input-box">ARC, ART</div>
-            <div className="input-box">Leading practices Past CG projects</div>
-            <div className="input-box">Manual feed SME inputs</div>
+
+            <div class="flow-container">
+              <div class="flow-box curved purple">ARC, ART</div>
+              <div class="flow-box curved pink">Manual feed</div>
+            </div>
+
+            <div class="flow-container">
+              <div class="flow-box outline">
+                Leading practices Past CPG projects
+              </div>
+              <div class="flow-box outline">SME inputs</div>
+            </div>
           </div>
         </div>
 

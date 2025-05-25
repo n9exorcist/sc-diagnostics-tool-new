@@ -1,4 +1,4 @@
-/* src/components/Workflow.css */
+
 .workflow-container {
   font-family: Arial, sans-serif;
   max-width: 1200px;
@@ -32,23 +32,44 @@ background: linear-gradient(to right, #d6ccf2, #ccf5f5);
   margin-bottom: 20px;
 }
 
-.input-box {
-  border: 2px solid #d3d3d3;
-  padding: 10px;
-  margin-bottom: 10px;
-  background-color: #f9f9f9;
+.flow-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 20px 0;
 }
 
-.input-box h3 {
-  margin: 0;
-  font-size: 16px;
-  color: #333;
+.flow-box {
+  padding: 10px 16px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 14px;
+  position: relative;
 }
 
-.input-box p {
-  margin: 5px 0 0;
-  font-size: 12px;
-  color: #666;
+/* Curved top shape effect */
+.curved {
+  border-radius: 4px 4px 0 0;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+  color: black;
+}
+
+/* Color backgrounds */
+.purple {
+  background: linear-gradient(to bottom, #e3c4ff, #d3b3f5);
+}
+
+.pink {
+  background: linear-gradient(to bottom, #f5d8e7, #eecfe3);
+}
+
+/* Outline boxes (no fill, thin purple border) */
+.outline {
+  border: 1px solid purple;
+  background: white;
+  color: black;
+  font-size: 13px;
+  font-weight: 400;
 }
 
 .data-source {
@@ -67,11 +88,68 @@ background: linear-gradient(to right, #d6ccf2, #ccf5f5);
 }
 
 .gen-ai-box {
-  background-color: #6a1b9a;
-  color: white;
-  padding: 20px;
+  background: linear-gradient(135deg, #a100ff, #e100ff);
+    /* violet-pink gradient */
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px 30px;
+    border-radius: 6px;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: fit-content;
+    margin: 20px auto;
+}
+
+.flowchart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  margin: 40px auto;
+  position: relative;
+  box-shadow: 4px 5px 58px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+.flow-box {
+  background: #e6ccff;
+  color: #4b0082;
+  padding: 10px 15px;
+  border-radius: 4px;
+  font-weight: bold;
+  text-align: center;
+  margin: 10px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.flow-desc {
+  background: white;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 14px;
   text-align: center;
   margin-bottom: 20px;
+  max-width: 280px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 1.00);
+}
+
+/* Optional: Vertical arrow effect using ::after */
+.flow-box::after {
+  content: "↑";
+  color: #aaa;
+  font-size: 20px;
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.flow-box:last-of-type::after {
+  content: "";
 }
 
 .gen-ai-box h2 {
@@ -122,6 +200,8 @@ svg path {
   border: 2px solid #d3d3d3;
   padding: 10px;
   margin-bottom: 10px;
+  box-shadow: 4px 5px 58px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
 }
 
 .output-box h4 {
