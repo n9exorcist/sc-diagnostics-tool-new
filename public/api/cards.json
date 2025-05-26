@@ -1,0 +1,34 @@
+[
+    {
+      "type": "myDiagnostic",
+      "title": "Diagnostic Questionnaire for Plan, Source & Deliver",
+      "description": "Diagnostic Questionnaire for Plan, Source & Deliver.",
+      "imageSrc": "https://dynamicmedia.accenture.com/is/image/accenture/Accenture-Data-Generative-AI-Stories-Glance-3840x2160%3Arad-card-half?ts=1719947488124&fit=constrain&dpr=off ",
+      "ctaLink": "/tool",
+      "label": "myDiagnostic"
+    },
+    {
+      "type": "VIP",
+      "title": "Peer Financial Analysis",
+      "description": "Peer Financial Analysis.",
+      "imageSrc": "https://dynamicmedia.accenture.com/is/image/accenture/Accenture-Data-Generative-AI-Stories-Glance-3840x2160%3Arad-card-half?ts=1719947488124&fit=constrain&dpr=off ",
+      "ctaLink": "/tool",
+      "label": "VIP"
+    },
+    {
+      "type": "CDI/Manual",
+      "title": "Benchmarks for top 3 KPIs each across Plan, Fulfil & Source",
+      "description": "Benchmarks for top 3 KPIs each across Plan, Fulfil & Source.",
+      "imageSrc": "https://dynamicmedia.accenture.com/is/image/accenture/Accenture-Data-Generative-AI-Stories-Glance-3840x2160%3Arad-card-half?ts=1719947488124&fit=constrain&dpr=off ",
+      "ctaLink": "/tool",
+      "label": "CDI/Manual"
+    },
+    {
+      "type": "Sales order data",
+      "title": "Raw sales order data from ERP or excel for OTIF calculation",
+      "description": "Raw sales order data from ERP or excel for OTIF calculation.",
+      "imageSrc": "https://dynamicmedia.accenture.com/is/image/accenture/Accenture-Data-Generative-AI-Stories-Glance-3840x2160%3Arad-card-half?ts=1719947488124&fit=constrain&dpr=off ",
+      "ctaLink": "/tool",
+      "label": "Sales order data"
+    }
+  ]
