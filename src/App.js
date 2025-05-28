@@ -7,7 +7,7 @@ import RapidDiagnosticMVP from "./components/RapidDiagnosticMVP";
 import Outputs from "./components/Outputs"; // New Outputs component
 
 function App() {
-  const [cards, setCards] = useState([]);
+  const [cardss, setCards] = useState([]);
 
   useEffect(() => {
     // Simulate fetching data from an API or JSON file
@@ -29,36 +29,12 @@ function App() {
       <NavBar /> {/* 👈 Add here */}
       <Container>
         <Routes>
-          <Route path="/" element={<RapidDiagnosticMVP cards={cards} />} />
+          <Route path="/" element={<RapidDiagnosticMVP cards={cardss} />} />
           <Route path="/tool" element={<Dashboard />} />
         </Routes>
       </Container>
     </Router>
   );
 }
-
-const Home = ({ cards }) => {
-  return (
-    <div className="home-container">
-      <h2>What's Trending in Generative AI</h2>
-      <div className="flex-container">
-        {/* Left Section: Cards */}
-        <div className="left-section">
-          <RapidDiagnosticMVP cards={cards} />
-        </div>
-
-        {/* Center Section: Dashboard */}
-        <div className="center-section">
-          <Dashboard />
-        </div>
-
-        {/* Right Section: Outputs */}
-        <div className="right-section">
-          <Outputs />
-        </div>
-      </div>
-    </div>
-  );
-};
 
 export default App;

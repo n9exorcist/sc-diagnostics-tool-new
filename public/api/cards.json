@@ -1,34 +1,101 @@
 [
-    {
-      "type": "myDiagnostic",
-      "title": "Diagnostic Questionnaire for Plan, Source & Deliver",
-      "description": "Diagnostic Questionnaire for Plan, Source & Deliver.",
-      "imageSrc": "https://dynamicmedia.accenture.com/is/image/accenture/Accenture-Data-Generative-AI-Stories-Glance-3840x2160%3Arad-card-half?ts=1719947488124&fit=constrain&dpr=off ",
-      "ctaLink": "/tool",
-      "label": "myDiagnostic"
-    },
-    {
-      "type": "VIP",
-      "title": "Peer Financial Analysis",
-      "description": "Peer Financial Analysis.",
-      "imageSrc": "https://dynamicmedia.accenture.com/is/image/accenture/Accenture-Data-Generative-AI-Stories-Glance-3840x2160%3Arad-card-half?ts=1719947488124&fit=constrain&dpr=off ",
-      "ctaLink": "/tool",
-      "label": "VIP"
-    },
-    {
-      "type": "CDI/Manual",
-      "title": "Benchmarks for top 3 KPIs each across Plan, Fulfil & Source",
-      "description": "Benchmarks for top 3 KPIs each across Plan, Fulfil & Source.",
-      "imageSrc": "https://dynamicmedia.accenture.com/is/image/accenture/Accenture-Data-Generative-AI-Stories-Glance-3840x2160%3Arad-card-half?ts=1719947488124&fit=constrain&dpr=off ",
-      "ctaLink": "/tool",
-      "label": "CDI/Manual"
-    },
-    {
-      "type": "Sales order data",
-      "title": "Raw sales order data from ERP or excel for OTIF calculation",
-      "description": "Raw sales order data from ERP or excel for OTIF calculation.",
-      "imageSrc": "https://dynamicmedia.accenture.com/is/image/accenture/Accenture-Data-Generative-AI-Stories-Glance-3840x2160%3Arad-card-half?ts=1719947488124&fit=constrain&dpr=off ",
-      "ctaLink": "/tool",
-      "label": "Sales order data"
-    }
-  ]
+  {
+    "type": "AssessmentStart",
+    "title": "Assessment Start",
+    "description": "Request Access and Define Project Details",
+    "details": [
+      "Request Access",
+      "Define Client Name",
+      "Define Project Key Name",
+      "Create an assessment name (auto-generated from Client + Project)",
+      "Raise access request for more users if any"
+    ],
+    "imageSrc": "https://dynamicmedia.accenture.com/is/image/accenture/Accenture-Data-Generative-AI-Stories-Glance-3840x2160%3Arad-card-half?ts=1719947488124&fit=constrain&dpr=off ",
+    "ctaLink": "/tool",
+    "label": "Assessment Start"
+  },
+  {
+    "type": "BenchmarktheKPIs",
+    "title": "Benchmark the KPIs",
+    "description": "Download and Upload Benchmark Templates",
+    "details": [
+      "Ability to download template",
+      "Ability to import Template 1 for Benchmarks",
+      "Ability to import Template 2 for Benchmarks",
+      "Generate Quartile Plots",
+      "Generate Improvement Ranges",
+      "Generate comments on the KPI performance"
+    ],
+    "imageSrc": "https://dynamicmedia.accenture.com/is/image/accenture/TechVision-2025-ACOM-Glance-Skim-600x848px%3Arad-card-full?ts=1745360075675&fit=constrain&dpr=off ",
+    "ctaLink": "/tool",
+    "label": "Benchmark the KPIs"
+  },
+  {
+    "type": "CalculatetheKPIs",
+    "title": "Calculate the KPIs",
+    "description": "Calculate KPI Values Using Input Data",
+    "details": [
+      "Ability to download template",
+      "Ability to import Templates for calculating each KPI",
+      "Ability to view the values being calculated (See adjacent picture)",
+      "Once they click on it, they must be able to see different cuts of the KPIs"
+    ],
+    "imageSrc": "https://dynamicmedia.accenture.com/is/image/accenture/Making-Reinvention-Real-With-GenAI-TL-Skim-Glance-Image_600x848px%3Arad-card-full?ts=1743538536371&fit=constrain&dpr=off ",
+    "ctaLink": "/tool",
+    "label": "Calculate the KPIs"
+  },
+  {
+    "type": "ConductFinancialAnalysis",
+    "title": "Conduct Financial Analysis",
+    "description": "Import VIP Inputs & View Outputs",
+    "details": [
+      "Ability to download template",
+      "Ability to import data for VIP input",
+      "View the outputs"
+    ],
+    "imageSrc": "https://dynamicmedia.accenture.com/is/image/accenture/Accenture-Data-Generative-AI-Stories-Glance-3840x2160%3Arad-card-half?ts=1719947488124&fit=constrain&dpr=off ",
+    "ctaLink": "/tool",
+    "label": "Conduct Financial Analysis"
+  },
+  {
+    "type": "Diagnostics",
+    "title": "Diagnostics",
+    "description": "View AI-Based Diagnostic Insights",
+    "details": [
+      "Ability to download template",
+      "Ability to import Questionnaire",
+      "View myD outputs"
+    ],
+    "imageSrc": "https://dynamicmedia.accenture.com/is/image/accenture/TechVision-2025-ACOM-Glance-Skim-600x848px%3Arad-card-full?ts=1745360075675&fit=constrain&dpr=off ",
+    "ctaLink": "/tool",
+    "label": "Diagnostics"
+  },
+  {
+    "type": "Deliver",
+    "title": "Deliver",
+    "description": "Final Output Delivery",
+    "details": [
+      "A comprehensive view of all the outputs combined",
+      "Key output visualization per KPI, Financial analysis, Diagnostics",
+      "Filter for Plan, Source, Fulfil can be added here",
+      "Brief Summary",
+      "Detailed Summary on how to improve the Supply chain",
+      "Chat bot with standard prompts to support the modification of output view or answer questions",
+      "Option to download the output"
+    ],
+    "imageSrc": "https://dynamicmedia.accenture.com/is/image/accenture/Making-Reinvention-Real-With-GenAI-TL-Skim-Glance-Image_600x848px%3Arad-card-full?ts=1743538536371&fit=constrain&dpr=off ",
+    "ctaLink": "/tool",
+    "label": "Deliver"
+  },
+  {
+    "type": "ProgressMeter",
+    "title": "Progress Meter",
+    "description": "Track your Assessment Progress",
+    "details": [
+      "Should be visible in each page showing how the assessment is progressing"
+    ],
+    "imageSrc": "https://dynamicmedia.accenture.com/is/image/accenture/Accenture-Data-Generative-AI-Stories-Glance-3840x2160%3Arad-card-half?ts=1719947488124&fit=constrain&dpr=off ",
+    "ctaLink": "/tool",
+    "label": "Progress Meter"
+  }
+]
