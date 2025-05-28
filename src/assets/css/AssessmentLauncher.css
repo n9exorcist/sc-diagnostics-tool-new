@@ -1,0 +1,45 @@
+/* Assessment Launcher Styles */
+.assessment-launcher {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .tab {
+    padding: 10px 20px;
+    background-color: #f9f9f9;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .tab.active {
+    background-color: #6a1b9a; /* Accenture Purple */
+    color: white;
+  }
+  
+  .launch-button {
+    background-color: #6a1b9a;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+  }
+  
+  .launch-button:hover {
+    background-color: #5e35b0;
+  }

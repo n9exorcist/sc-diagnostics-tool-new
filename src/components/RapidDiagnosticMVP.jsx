@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import "../assets/css/RapidDiagnosticMVP.css"; // Import your CSS file for styling
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 // Import Flickity (if not already installed)
 import Flickity from "flickity";
@@ -71,6 +71,13 @@ const RapidDiagnosticMVP = () => {
             </div>
           ))}
         </div>
+      </div>
+
+      {/* Launch Button */}
+      <div className="launch-buttons mt-5">
+        <Link to="/launch-assessment" className="launch-button">
+          Launch New Assessment
+        </Link>
       </div>
     </div>
   );

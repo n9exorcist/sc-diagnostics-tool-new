@@ -6,6 +6,7 @@ import NavBar from "./components/NavBar"; // New NavBar component
 import RapidDiagnosticMVP from "./components/RapidDiagnosticMVP";
 import Outputs from "./components/Outputs"; // New Outputs component
 import CardDetailPage from "./components/CardDetailPage";
+import AssessmentLauncher from "./components/AssessmentLauncher";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" element={<RapidDiagnosticMVP />} />
           <Route path="/tool" element={<Dashboard />} />
           <Route path="/card/:cardType" element={<CardDetailPage />} />
+          <Route path="/launch-assessment" element={<AssessmentLauncher />} />
         </Routes>
       </Container>
     </Router>

@@ -38,15 +38,16 @@ const CardDetailPage = () => {
         ))}
       </ul>
 
-      {/* Image */}
-      <div className="card-image">
-        <img src={card.imageSrc} alt={card.title} />
-      </div>
-
-      {/* CTA Button */}
-      <a href={card.ctaLink} target="_blank" rel="noopener noreferrer">
-        <button className="cta-button">View Full Report</button>
-      </a>
+      {/* File Upload Button */}
+      <label htmlFor="excel-upload" className="upload-button">
+        Upload Excel File
+      </label>
+      <input
+        id="excel-upload"
+        type="file"
+        accept=".xlsx,.xls"
+        style={{ display: "none" }}
+      />
     </div>
   );
 };
