@@ -2,18 +2,33 @@ import React, { useState, useRef, useEffect } from "react";
 import "../assets/css/RapidDiagnosticMVP.css"; // Import your CSS file for styling
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { useNavigate } from "react-router-dom";
 
 // Import Flickity (if not already installed)
 import Flickity from "flickity";
 import "flickity/css/flickity.css";
 
-const RapidDiagnosticMVP = ({ cards }) => {
+const RapidDiagnosticMVP = () => {
+  const [cards, setCards] = useState([]);
+
+  const fetchData = async () => {
+    try {
+      const response = await fetch("/api/cards.json"); // Replace with actual API endpoint
+      const data = await response.json();
+      console.log("Fetched cards:", data); // Log the fetched data
+      setCards(data);
+    } catch (error) {
+      console.error("Error fetching cards:", error);
+    }
+  };
+
   const carouselRef = useRef(null);
   const flickityInstance = useRef(null);
 
   // Initialize Flickity on component mount
   useEffect(() => {
     console.log("Initializing Flickity...");
+    fetchData();
     flickityInstance.current = new Flickity(carouselRef.current, {
       cellAlign: "left",
       contain: true,
@@ -33,15 +48,29 @@ const RapidDiagnosticMVP = ({ cards }) => {
   }, []);
 
   return (
-    <div className="carousel-container">
-      <h2>Rapid Diagnostic Factory | MVP</h2>
+    <div className="homepage-container">
+      {/* Intro Section */}
+      <div className="tool-intro">
+        <h1>SC Rapid Diagnostics Factory Tool</h1>
+        <p className="tool-description">
+          Accelerate diagnostics and benchmarking for Supply Chain capabilities
+          using Gen AI.
+        </p>
+        <p className="tool-subdescription">
+          Request Access, Define Project, Benchmark KPIs, Conduct Financial
+          Analysis, Diagnostics & Deliver Outputs – all in one interface.
+        </p>
+      </div>
+
       {/* Flickity Carousel */}
-      <div className="carousel" ref={carouselRef}>
-        {cards.map((card, index) => (
-          <div key={index} className="carousel-cell">
-            <Card {...card} />
-          </div>
-        ))}
+      <div className="card-carousel-section">
+        <div className="carousel" ref={carouselRef}>
+          {cards.map((card, index) => (
+            <div key={index} className="carousel-cell">
+              <Card {...card} cards={cards} />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -55,15 +84,20 @@ const Card = ({
   imageSrc,
   ctaLink,
   label,
+  cards,
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
-
+  const navigate = useNavigate();
+  console.log("Card props:", cards);
   return (
     <div
       className={`rad-content-grid-card rad-content-grid-card--${type}`}
-      data-analytics-link-name={title}
-      data-analytics-module-name="carousel-card"
-      onClick={() => setIsExpanded(!isExpanded)}
+      onClick={() => {
+        setIsExpanded(!isExpanded);
+        navigate(`/card/${type}`, {
+          state: { cards },
+        });
+      }}
       style={{ cursor: "pointer" }}
     >
       <div
@@ -86,9 +120,9 @@ const Card = ({
           >
             Expand
           </button>
-          <a href={ctaLink} target="_blank" rel="noopener noreferrer">
-            <img src={imageSrc} alt={title} className="cmp-image__image" />
-          </a>
+
+          <img src={imageSrc} alt={title} className="cmp-image__image" />
+
           <div className="rad-content-grid-card__label">{label}</div>
           <div className="rad-content-grid-card__title">{title}</div>
         </div>
@@ -110,9 +144,12 @@ const Card = ({
               <li key={idx}>{detail}</li>
             ))}
           </ul>
-          <a href={ctaLink} target="_blank" rel="noopener noreferrer">
-            <button className="rad-button rad-button--ghost">Expand</button>
-          </a>
+          <button
+            className="rad-button rad-button--ghost"
+            onClick={() => window.open(ctaLink, "_blank")}
+          >
+            Expand
+          </button>
         </div>
       </div>
     </div>

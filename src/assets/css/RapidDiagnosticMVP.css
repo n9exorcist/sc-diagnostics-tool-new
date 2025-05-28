@@ -1,10 +1,11 @@
-/* assets/css/RapidDiagnosticMVP.css */
+/* Carousel Container */
 .carousel-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 40px 20px;
 }
 
+/* Main Carousel Styles */
 .carousel {
   display: flex;
   overflow-x: auto;
@@ -20,14 +21,19 @@
 
 .carousel::-webkit-scrollbar-thumb {
   background: #6a1b9a;
+  /* Accenture Purple */
   border-radius: 4px;
 }
 
+.carousel::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Card Base Styles */
 .rad-content-grid-card {
   min-width: 300px;
-    /* 👈 Your key fix */
+    /* Adjust for desktop */
     max-width: 300px;
-    /* Ensures consistent sizing */
     height: 400px;
     border-radius: 10px;
     overflow: hidden;
@@ -37,7 +43,6 @@
     scroll-snap-align: start;
     border: 1px solid #e0e0e0;
     flex-shrink: 0;
-    /* Prevent cards from shrinking */
 }
 
 .rad-content-grid-card:hover {
@@ -45,17 +50,15 @@
   transform: scale(1.05);
 }
 
+/* Sliding Content (Flip Animation) */
 .rad-content-grid-card__sliding-content {
-  position: relative;
   width: 100%;
   height: 100%;
-  text-align: center;
-  transition: transform 0.6s;
-  transform-style: preserve-3d;
-  /* Preserve 3D space */
   position: absolute;
   top: 0;
   left: 0;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
 }
 
 .rad-content-grid-card__front-content,
@@ -88,7 +91,9 @@
   color: black;
 }
 
-.rad-content-grid-card__front-toggle {
+/* Expand / Close Buttons */
+.rad-content-grid-card__front-toggle,
+.rad-icon-button {
   position: absolute;
   top: 10px;
   right: 10px;
@@ -107,80 +112,89 @@
   background: rgba(255, 255, 255, 0.2);
 }
 
-.cmp-image__image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: filter 0.3s ease;
-  /* Hover effect for images */
+.rad-icon-button rad-content-grid-card__close-button {
+  background: #6a1b9a;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
 }
 
+/* Image inside card */
+.cmp-image__image {
+  width: 100%;
+  height: 70%;
+  object-fit: cover;
+  transition: filter 0.3s ease;
+}
+
+/* Label & Title Positioning */
 .rad-content-grid-card__label {
   position: absolute;
   top: 20px;
   left: 20px;
   background-color: #6a1b9a;
-  /* Accenture Purple */
   color: white;
   font-size: 12px;
   font-weight: bold;
   padding: 6px 12px;
   border-radius: 4px;
   text-transform: uppercase;
+  z-index: 2;
 }
 
 .rad-content-grid-card__title {
   position: absolute;
-    bottom: 20px;
-    left: 20px;
-    right: 20px;
-    font-size: 16px;
-    font-weight: bold;
-    color: black;
-    z-index: 2;
-    word-break: break-word;
-    white-space: normal;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: black;
+  z-index: 2;
+  word-break: break-word;
+  white-space: normal;
+}
+
+/* Flip Animation */
+.rad-content-grid-card__front-content.expanded {
+  transform: rotateY(-180deg);
 }
 
 .rad-content-grid-card__back-content.expanded {
   transform: rotateY(0deg);
 }
 
-.rad-content-grid-card__front-content.expanded {
-  transform: rotateY(-180deg);
-}
-
-.rad-content-grid-card--myDiagnostic,  .rad-content-grid-card--NewType{
+/* Type-specific Backgrounds */
+.rad-content-grid-card--AssessmentStart,
+.rad-content-grid-card--NewType {
   background-color: #e3c4ff;
   /* Light purple */
-  color: black;
 }
 
-.rad-content-grid-card--VIP {
+.rad-content-grid-card--BenchmarktheKPIs {
   background-color: #f5d8e7;
   /* Pinkish */
-  color: black;
 }
 
-.rad-content-grid-card--CDIManual{
+.rad-content-grid-card--CDIManual {
   background-color: white;
   border: 1px solid purple;
 }
 
-.rad-content-grid-card--Salesorderdata {
+.rad-content-grid-card--Salesorderdata,
+.rad-content-grid-card--Diagnostics,
+.rad-content-grid-card--Deliver,
+.rad-content-grid-card--ProgressMeter {
   background-color: #f9f9f9;
-  color: black;
 }
 
+/* Button Icons */
 .rad-button__text {
   display: inline-block;
   vertical-align: middle;
-}
-
-.rad-button__icon-right {
-  display: inline-block;
-  vertical-align: middle;
-  margin-left: 8px;
 }
 
 .rad-button__icon-right::after {
@@ -189,31 +203,68 @@
   vertical-align: middle;
 }
 
-.rad-icon-button__text {
-  display: none;
-}
-
-.rad-icon-button__icon-right {
-  display: inline-block;
-  vertical-align: middle;
-  margin-left: 8px;
-}
-
 .rad-icon-button__icon-right::after {
   content: "×";
   font-size: 20px;
   color: white;
 }
 
-/* Responsive Styles */
+/* Homepage Intro Section */
+.homepage-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.tool-intro {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.tool-intro h1 {
+  font-size: 24px;
+  color: #6a1b9a;
+  margin-bottom: 10px;
+}
+
+.tool-intro .tool-description,
+.tool-intro .tool-subdescription {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.tool-intro .tool-image img {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Details List in Back Content */
+.rad-content-grid-card__details-list {
+  list-style-type: decimal;
+  padding-left: 20px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.rad-content-grid-card__details-list li {
+  margin-bottom: 10px;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
   .carousel {
     flex-direction: column;
+    gap: 20px;
   }
 
   .rad-content-grid-card {
     width: 100%;
     height: auto;
+    min-height: 250px;
   }
 
   .rad-content-grid-card__title {
@@ -227,18 +278,16 @@
     font-size: 10px;
   }
 
-  .rad-content-grid-card__half-image,
-  .rad-content-grid-card__quarter-image,
-  .rad-content-grid-card__full-image {
-    height: 40%;
+  .rad-content-grid-card__details-list {
+    font-size: 13px;
   }
 
-  .rad-content-grid-card__content p {
-    font-size: 12px;
+  .rad-content-grid-card__image {
+    height: 40%;
   }
 }
 
-/* Flickity Arrow Styling */
+/* Flickity Navigation Arrows */
 .flickity-prev-next-button {
   background: #6a1b9a;
   color: white;
@@ -250,6 +299,7 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  z-index: 10;
 }
 
 .flickity-prev-next-button:hover {
@@ -262,22 +312,4 @@
 
 .flickity-prev-next-button.next {
   right: -20px;
-}
-
-.flickity-prev-next-button.next,
-.flickity-prev-next-button.previous {
-  background: #6a1b9a !important;
-  color: white !important;
-  z-index: 10;
-}
-
-.rad-content-grid-card__details-list {
-  list-style-type: decimal;
-  padding-left: 20px;
-  font-size: 14px;
-  line-height: 1.5;
-}
-
-.rad-content-grid-card__details-list li {
-  margin-bottom: 10px;
 }
