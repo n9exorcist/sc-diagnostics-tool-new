@@ -21,7 +21,7 @@ const CardDetailPage = () => {
   return (
     <div className="card-detail-container">
       {/* Back Button */}
-      <button className="back-button" onClick={() => navigate(-1)}>
+      <button className="back-button mb-3" onClick={() => navigate(-1)}>
         ← Back
       </button>
 

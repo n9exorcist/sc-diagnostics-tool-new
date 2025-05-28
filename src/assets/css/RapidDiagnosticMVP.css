@@ -265,6 +265,7 @@
     width: 100%;
     height: auto;
     min-height: 250px;
+    max-width: 100%;
   }
 
   .rad-content-grid-card__title {
