@@ -130,7 +130,7 @@ const Card = ({
 
           <img src={imageSrc} alt={title} className="cmp-image__image" />
 
-          <div className="rad-content-grid-card__label">{label}</div>
+          {/* <div className="rad-content-grid-card__label">{label}</div> */}
           <div className="rad-content-grid-card__title">{title}</div>
         </div>
 

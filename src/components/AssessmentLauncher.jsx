@@ -45,7 +45,7 @@ const AssessmentLauncher = () => {
             <h3>Open Existing Assessment</h3>
             <p>Resume or review an assessment you've already started.</p>
             <input type="text" placeholder="Enter Assessment ID" />
-            <button className="launch-button">Open Assessment</button>
+            <button className="ms-2 launch-button">Open Assessment</button>
           </div>
         )}
         {selectedTab === "demo" && (

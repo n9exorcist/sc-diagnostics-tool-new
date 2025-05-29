@@ -6,6 +6,7 @@ const CardDetailPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { cardType } = useParams(); // Extract cardType from URL
+  console.log("cardType:", cardType); // Debugging log
 
   // Extract the full cards array from location.state
   const cards = location.state?.cards || [];
