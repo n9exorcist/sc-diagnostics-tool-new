@@ -1,15 +1,10 @@
 import React, { useState, useRef, useEffect } from "react";
 import "../assets/css/RapidDiagnosticMVP.css"; // Import your CSS file for styling
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import { useNavigate, Link } from "react-router-dom";
-
-// Import Flickity (if not already installed)
-import Flickity from "flickity";
-import "flickity/css/flickity.css";
 
 const RapidDiagnosticMVP = () => {
   const [cards, setCards] = useState([]);
+  const [currentCardIndex, setCurrentCardIndex] = useState(0);
 
   const fetchData = async () => {
     try {
@@ -22,30 +17,27 @@ const RapidDiagnosticMVP = () => {
     }
   };
 
-  const carouselRef = useRef(null);
-  const flickityInstance = useRef(null);
-
-  // Initialize Flickity on component mount
   useEffect(() => {
-    console.log("Initializing Flickity...");
     fetchData();
-    flickityInstance.current = new Flickity(carouselRef.current, {
-      cellAlign: "left",
-      contain: true,
-      wrapAround: false,
-      pageDots: false,
-      prevNextButtons: true, // 👈 This automatically adds arrows
-      draggable: true,
-      freeScroll: false,
-    });
-
-    return () => {
-      if (flickityInstance.current) {
-        console.log("Destroying Flickity...");
-        flickityInstance.current.destroy();
-      }
-    };
   }, []);
+
+  const handlePrev = () => {
+    setCurrentCardIndex((prevIndex) =>
+      prevIndex === 0 ? cards.length - 1 : prevIndex - 1
+    );
+  };
+
+  const handleNext = () => {
+    setCurrentCardIndex((prevIndex) =>
+      prevIndex === cards.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  const cardWidth = 320; // Fixed card width
+  const totalCards = cards.length;
+
+  // Calculate transform value
+  const translateValue = currentCardIndex * cardWidth;
 
   return (
     <div className="homepage-container">
@@ -62,15 +54,26 @@ const RapidDiagnosticMVP = () => {
         </p>
       </div>
 
-      {/* Flickity Carousel */}
-      <div className="card-carousel-section">
-        <div className="carousel" ref={carouselRef}>
-          {cards.map((card, index) => (
-            <div key={index} className="carousel-cell">
-              <Card {...card} cards={cards} />
-            </div>
-          ))}
+      {/* Manual Carousel */}
+      <div className="card-carousel-section position-relative">
+        <button className="carousel-button previous" onClick={handlePrev}>
+          ← Previous
+        </button>
+        <div className="carousel">
+          <div
+            className="carousel-cell-container"
+            style={{ transform: `translateX(-${translateValue}px)` }}
+          >
+            {cards.map((card, index) => (
+              <div key={index} className="carousel-cell">
+                <Card {...card} cards={cards} />
+              </div>
+            ))}
+          </div>
         </div>
+        <button className="carousel-button next" onClick={handleNext}>
+          Next →
+        </button>
       </div>
 
       {/* Launch Button */}
@@ -118,8 +121,6 @@ const Card = ({
           <button
             className="rad-content-grid-card__front-toggle"
             aria-expanded="false"
-            aria-controls={`card-${Math.random().toString(36).substring(2, 9)}`}
-            aria-label={`${label}: ${title}`}
             onClick={(e) => {
               e.stopPropagation();
               setIsExpanded(true);
@@ -130,7 +131,7 @@ const Card = ({
 
           <img src={imageSrc} alt={title} className="cmp-image__image" />
 
-          {/* <div className="rad-content-grid-card__label">{label}</div> */}
+          <div className="rad-content-grid-card__label">{label}</div>
           <div className="rad-content-grid-card__title">{title}</div>
         </div>
 

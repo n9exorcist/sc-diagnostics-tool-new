@@ -8,11 +8,11 @@
 /* Main Carousel Styles */
 .carousel {
   display: flex;
-  overflow-x: auto;
-  gap: 20px;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  padding: 20px 0;
+    overflow: hidden;
+    /* Hide extra cards */
+    position: relative;
+    width: 100%;
+    white-space: nowrap;
 }
 
 .carousel::-webkit-scrollbar {
@@ -29,10 +29,29 @@
   background: #f1f1f1;
 }
 
+.carousel-card{
+  display: flex;
+  gap: 16px;
+  /* spacing between cards */
+}
+
+.carousel-cell-container {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  will-change: transform;
+}
+
+.carousel-cell {
+  min-width: 300px;
+  height: 400px;
+  margin-right: 20px;
+  scroll-snap-align: start;
+  flex-shrink: 0;
+}
 /* Card Base Styles */
 .rad-content-grid-card {
   min-width: 300px;
-    /* Adjust for desktop */
+   width: 100%;
     max-width: 300px;
     height: 400px;
     border-radius: 10px;
@@ -43,6 +62,7 @@
     scroll-snap-align: start;
     border: 1px solid #e0e0e0;
     flex-shrink: 0;
+    flex: 0 0 auto;
 }
 
 .rad-content-grid-card:hover {
@@ -223,6 +243,18 @@
     /* Darker Accenture Purple on hover */
 }
 
+@media (max-width: 768px) {
+  .rad-button--ghost {
+    width: 100%;
+    /* Full width on mobile */
+    margin-bottom: 10px;
+  }
+  .carousel-cell-container {
+    flex-direction: column;
+    /* Stack cards vertically on small screens */
+  }
+}
+
 .rad-icon-button__icon-right::after {
   content: "×";
   font-size: 20px;
@@ -279,12 +311,61 @@
   font-size: 14px;
 }
 
+/* Carousel Buttons */
+.carousel-button {
+  background-color: #e3c4ff;
+  /* Accenture Purple */
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.carousel-button:hover {
+  background-color: #5e35b0;
+  /* Darker Accenture Purple on hover */
+}
+
+.carousel-button.previous {
+  position: absolute;
+  left: 20px;
+  /* Align to the left side */
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.carousel-button.next {
+  position: absolute;
+  right: 20px;
+  /* Align to the right side */
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .carousel {
     flex-direction: column;
-    gap: 20px;
+      /* Stack cards vertically on small screens */
+      gap: 20px;
   }
+
+    .carousel-cell {
+      width: 100%;
+      /* Full width on mobile */
+      height: auto;
+      min-height: 250px;
+    }
+  
+    .carousel-button.previous,
+    .carousel-button.next {
+      display: none;
+      /* Hide buttons on mobile */
+    }
 
   .rad-content-grid-card {
     width: 100%;
