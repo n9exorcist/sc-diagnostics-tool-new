@@ -9,7 +9,15 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { PublicClientApplication, EventType } from "@azure/msal-browser";
 import { MsalProvider } from "@azure/msal-react";
 import { msalConfig } from "./authConfig";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import {
+  faChevronLeft,
+  faChevronRight,
+  faSearch,
+} from "@fortawesome/free-solid-svg-icons";
 
+// Add icons to the library
+library.add(faChevronLeft, faChevronRight, faSearch);
 const msalInstance = new PublicClientApplication(msalConfig);
 
 // Optional: Automatically log in user on app start

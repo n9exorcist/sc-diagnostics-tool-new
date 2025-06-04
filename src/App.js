@@ -7,19 +7,23 @@ import RapidDiagnosticMVP from "./components/RapidDiagnosticMVP";
 import Outputs from "./components/Outputs"; // New Outputs component
 import CardDetailPage from "./components/CardDetailPage";
 import AssessmentLauncher from "./components/AssessmentLauncher";
+import BenchmarkingData from "./components/BenchmarkingData"; // New BenchmarkingData component
+import HomeScreen from "./components/HomeScreen"; // Home screen component
 
 function App() {
   return (
     <Router>
       <NavBar /> {/* 👈 Add here */}
-      <Container>
+      <>
         <Routes>
-          <Route path="/" element={<RapidDiagnosticMVP />} />
+          <Route path="/" element={<HomeScreen />} />
+          {/* <Route path="/" element={<RapidDiagnosticMVP />} /> */}
+          {/* <Route path="/" element={<BenchmarkingData />} /> */}
           <Route path="/tool" element={<Dashboard />} />
           <Route path="/card/:cardType" element={<CardDetailPage />} />
           <Route path="/launch-assessment" element={<AssessmentLauncher />} />
         </Routes>
-      </Container>
+      </>
     </Router>
   );
 }

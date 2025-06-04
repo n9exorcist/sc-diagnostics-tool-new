@@ -1,0 +1,467 @@
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Header */
+.header {
+  background-color: #ff00ff;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+/* Hero Section */
+.hero-section {
+  /* background-image: url("background.jpg"); */
+  background-size: cover;
+  text-align: center;
+  padding: 50px 0;
+}
+
+/* About Section */
+.about-section {
+  background-color: #000080;
+  color: white;
+  padding: 50px 0;
+}
+
+/* Circular Diagram */
+.circular-diagram {
+  text-align: center;
+  padding: 50px 0;
+}
+
+/* Foundation Data */
+.foundation-data {
+  padding: 50px 0;
+}
+
+/* Statistics Section */
+.statistics-section {
+  background-color: #ff00ff;
+  color: white;
+  padding: 50px 0;
+}
+
+/* World Map */
+.world-map {
+  background-color: #000080;
+  color: white;
+  padding: 50px 0;
+}
+
+/* Success Stories */
+.success-stories {
+  padding: 50px 0;
+}
+
+/* Footer */
+.footer {
+  background-color: #000080;
+  color: white;
+  padding: 20px 0;
+  display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 35px;
+}
+
+/* Hero Section */
+.hero-section {
+  background-color: #ffffff;
+  /* White background */
+  padding: 40px 0;
+  text-align: center;
+}
+
+.hero-section h1 {
+  font-size: 36px;
+  color: #ff00ff;
+  /* Accenture Purple */
+  margin-bottom: 10px;
+}
+
+.hero-section p {
+  font-size: 20px;
+  color: #333333;
+  margin-bottom: 20px;
+}
+
+.search-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-bar select,
+.search-bar input {
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  margin-right: 10px;
+}
+
+.search-bar select {
+  background-color: #f0f0f0;
+  color: #ff00ff;
+  /* Accenture Purple */
+}
+
+.search-bar input {
+  width: 300px;
+  background-color: #f0f0f0;
+}
+
+.search-bar button {
+  background-color: #ff00ff;
+  /* Accenture Purple */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-bar button:hover {
+  background-color: #5e35b0;
+  /* Darker Accenture Purple */
+}
+
+.search-bar svg {
+  width: 20px;
+  height: 20px;
+}
+
+@media (max-width: 768px) {
+  .search-bar {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .search-bar input {
+    width: 100%;
+  }
+}
+
+/* Statistics Section */
+.statistics-section {
+  background-color: #ff00ff;
+  /* Accenture Purple */
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.statistics-section h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 20px;
+  background-color: violet;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 0 10%;
+}
+
+.stats div {
+  text-align: center;
+}
+
+.stats h3 {
+  font-size: 24px;
+  margin: 0;
+}
+
+.stats p {
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+@media (max-width: 768px) {
+  .stats {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .stats div {
+    width: 100%;
+  }
+}
+
+/* Success Stories Section */
+.success-stories {
+  text-align: center;
+  padding: 40px 0;
+}
+
+.view-all-button {
+  background-color: transparent;
+  border: 1px solid #ff00ff;
+  /* Accenture Purple */
+  color: #ff00ff;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.view-all-button:hover {
+  background-color: #ff00ff;
+  color: white;
+}
+
+.carousel {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.carousel-cell-container {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  will-change: transform;
+}
+
+.carousel-cell {
+  min-width: 300px;
+  height: 400px;
+  margin-right: 20px;
+  scroll-snap-align: start;
+  flex-shrink: 0;
+}
+
+.success-story-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.success-story-card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.story-details {
+  padding: 20px;
+}
+
+.pagination {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.carousel-button {
+  background-color: #ff00ff;
+  /* Accenture Purple */
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.carousel-button:hover {
+  background-color: #5e35b0;
+  /* Darker Accenture Purple */
+}
+
+.carousel-button.previous {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.carousel-button.next {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@media (max-width: 768px) {
+  .carousel-cell {
+    width: 100%;
+    /* Full width on mobile */
+    height: auto;
+    min-height: 250px;
+  }
+
+  .carousel-button.previous,
+  .carousel-button.next {
+    display: none;
+    /* Hide buttons on mobile */
+  }
+}
+
+@media (max-width: 768px) {
+  .carousel-cell {
+    width: 100%;
+    /* Full width on mobile */
+    height: auto;
+    min-height: 250px;
+  }
+
+  .carousel-button.previous,
+  .carousel-button.next {
+    display: none;
+    /* Hide buttons on mobile */
+  }
+}
+/* Circular Diagram */
+.circular-diagram {
+  text-align: center;
+  padding: 50px 0;
+}
+
+.diagram-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 1200px;
+  background-image: url("../../../public/InOutWings.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  /* For positioning arrows */
+}
+
+.input-section,
+.output-section {
+  width: 30%;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.central-content {
+  width: 40%;
+  text-align: center;
+}
+
+.circle-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+}
+
+.circle {
+  width: 200px;
+  height: 200px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .diagram-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .input-section,
+  .output-section {
+    width: 100%;
+  }
+
+  .circle {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+@media (max-width: 768px) {
+  .diagram-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .input-section,
+  .output-section {
+    width: 100%;
+  }
+
+  .circle {
+    width: 150px;
+    height: 150px;
+  }
+
+  .diagram-container::before,
+  .diagram-container::after {
+    display: none;
+    /* Hide arrows on mobile */
+  }
+}
+
+
+/* Search Button */
+.search-button {
+  background-color: #ff00ff;
+  /* Accenture Purple */
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+  background-color: #5e35b0;
+  /* Darker Accenture Purple */
+}
+
+.carousel-button {
+  background-color: #ff00ff;
+  /* Accenture Purple */
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.carousel-button:hover {
+  background-color: #5e35b0;
+  /* Darker Accenture Purple */
+}
+
+@media (max-width: 768px) {
+
+  .search-button,
+  .carousel-button {
+    padding: 8px 15px;
+    font-size: 14px;
+  }
+}
