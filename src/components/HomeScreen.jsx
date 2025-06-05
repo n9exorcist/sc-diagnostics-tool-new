@@ -6,6 +6,7 @@ import FoundationData from "../components/homepage/FoundationData";
 import StatisticsSection from "../components/homepage/StatisticsSection";
 import SuccessStories from "../components/homepage/SuccessStories";
 import Footer from "../components/homepage/Footer";
+import RapidDiagnosticMVP from "../components/RapidDiagnosticMVP";
 import "../assets/css/homestyles.css";
 
 function HomeScreen() {
@@ -16,7 +17,7 @@ function HomeScreen() {
       <CircularDiagram />
       <FoundationData />
       <StatisticsSection />
-      <SuccessStories />
+      <RapidDiagnosticMVP />
       <Footer />
     </div>
   );

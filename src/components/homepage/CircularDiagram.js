@@ -3,7 +3,6 @@ import React from "react";
 const CircularDiagram = () => {
   return (
     <section className="circular-diagram">
-      <h2>Input & Output</h2>
       <div className="diagram-container">
         {/* Input Section */}
         <div className="input-section">
@@ -13,27 +12,38 @@ const CircularDiagram = () => {
 
         {/* Central Content */}
         <div className="central-content">
-          <div className="circle-container">
-            <div className="circle"></div>
-            {/* Add SVG or image for the circular diagram */}
+          <div className="central-circle-container">
+            <div className="circle">
+              <div className="content-container">
+                <div className="content-item">
+                  <h3 className="title">Unified Assessment Framework</h3>
+                  <p>
+                    Onboard clients and launch standardized surveys and
+                    assessments consistently
+                  </p>
+                </div>
+                <div className="content-item">
+                  <h3 className="title">
+                    Data, Process, and Technology Analysis
+                  </h3>
+                  <p>
+                    Use Next Gen assets to perform an in-depth analysis of Data,
+                    Process &amp; Technology unearthing key insights. Benchmark
+                    against leaders based on internal and external benchmarks.
+                  </p>
+                </div>
+                <div className="content-item">
+                  <h3 className="title">Gaps vs Recommendation Mapping</h3>
+                  <p>
+                    Identify the Gaps and provide Recommendations using AI to
+                    move ahead in the Maturity Index. Identify Key KPIs and
+                    baseline targets linked to value creation. Identify the key
+                    initiatives and prioritize value creation.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
-          <h3>Unified Assessment Framework</h3>
-          <p>
-            Onboard clients and launch standardized surveys and assessments
-            consistently
-          </p>
-          <h3>Data, Process, and Technology Analysis</h3>
-          <p>
-            Use Next Gen assets to perform an in-depth analysis of Data, Process
-            & Technology unearthing key insights.
-          </p>
-          <h3>Gaps vs Recommendation Mapping</h3>
-          <p>
-            Identify the Gaps and provide Recommendations using AI to move ahead
-            in the Maturity Index. Identify Key KPIs and baseline targets linked
-            to value creation. Identify the key initiatives and prioritize value
-            creation.
-          </p>
         </div>
 
         {/* Output Section */}

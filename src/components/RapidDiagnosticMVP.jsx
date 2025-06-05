@@ -42,7 +42,7 @@ const RapidDiagnosticMVP = () => {
   return (
     <div className="homepage-container">
       {/* Intro Section */}
-      <div className="tool-intro">
+      <div className="tool-intro d-none">
         <h1>SC Rapid Diagnostics Factory Tool</h1>
         <p className="tool-description">
           Accelerate diagnostics and benchmarking for Supply Chain capabilities

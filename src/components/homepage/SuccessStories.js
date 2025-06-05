@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 const SuccessStories = () => {
   const [currentStoryIndex, setCurrentStoryIndex] = useState(0);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   const successStories = [
     {
@@ -50,14 +51,21 @@ const SuccessStories = () => {
     );
   };
 
+  const toggleFlip = (e) => {
+    e.stopPropagation();
+    setIsExpanded(!isExpanded);
+  };
+
   return (
     <section className="success-stories">
       <h2>Success Stories</h2>
       <button className="view-all-button">View All</button>
+
       <div className="carousel">
         <button className="carousel-button previous" onClick={handlePrev}>
           ← Previous
         </button>
+
         <div
           className="carousel-cell-container"
           style={{
@@ -66,10 +74,21 @@ const SuccessStories = () => {
         >
           {successStories.map((story, index) => (
             <div key={index} className="carousel-cell">
-              <div className="success-story-card">
-                <img src={story.imageSrc} alt={story.title} />
-                <div className="story-details">
-                  <h3>{story.title}</h3>
+              <div
+                className={`success-story-card ${isExpanded ? "flipped" : ""}`}
+                onClick={toggleFlip}
+              >
+                {/* Front Content */}
+                <div className="story-card-front">
+                  <img src={story.imageSrc} alt={story.title} />
+                  <div className="story-title">{story.title}</div>
+                </div>
+
+                {/* Back Content */}
+                <div className="story-card-back">
+                  <button className="close-button" onClick={toggleFlip}>
+                    Close
+                  </button>
                   <p>
                     <strong>Objective:</strong> {story.details.objective}
                   </p>
@@ -84,10 +103,12 @@ const SuccessStories = () => {
             </div>
           ))}
         </div>
+
         <button className="carousel-button next" onClick={handleNext}>
           Next →
         </button>
       </div>
+
       <div className="pagination">
         <span>
           {currentStoryIndex + 1} / {successStories.length}
