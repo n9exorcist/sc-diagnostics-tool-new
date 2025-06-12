@@ -7,7 +7,10 @@ const CircularDiagram = () => {
         {/* Input Section */}
         <div className="input-section">
           <h3>INPUT</h3>
-          <p>Client Demographics, Assessment Responses, Survey Responses</p>
+          <p>
+            Maturity Assessment, Peer Finacial Analysis, KPI Benchmarks, Leading
+            Practices, Manual Prompts
+          </p>
         </div>
 
         {/* Central Content */}

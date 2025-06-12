@@ -2,9 +2,10 @@ import React, { useState, useRef, useEffect } from "react";
 import "../assets/css/RapidDiagnosticMVP.css"; // Import your CSS file for styling
 import { useNavigate, Link } from "react-router-dom";
 
-const RapidDiagnosticMVP = () => {
+const RapidDiagnosticMVP = ({ isLoading, onButtonClick }) => {
   const [cards, setCards] = useState([]);
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
+  const navigate = useNavigate();
 
   const fetchData = async () => {
     try {
@@ -39,18 +40,30 @@ const RapidDiagnosticMVP = () => {
   // Calculate transform value
   const translateValue = currentCardIndex * cardWidth;
 
+  const handleLaunchClick = (e) => {
+    e.preventDefault(); // Prevent default link behavior
+
+    if (typeof onButtonClick === "function") {
+      onButtonClick(); // Trigger loader
+      setTimeout(() => {
+        navigate("/launch-assessment"); // Navigate after delay (simulate loading)
+      }, 4000); // Match your loader duration
+    }
+  };
+
   return (
     <div className="homepage-container">
       {/* Intro Section */}
       <div className="tool-intro d-none">
         <h1>SC Rapid Diagnostics Factory Tool</h1>
         <p className="tool-description">
-          Accelerate diagnostics and benchmarking for Supply Chain capabilities
-          using Gen AI.
+          Transform insights into impact with a connected, GenAI-diagnostic
+          platform built on Accenture’s leading capabilities.
         </p>
         <p className="tool-subdescription">
-          Request Access, Define Project, Benchmark KPIs, Conduct Financial
-          Analysis, Diagnostics & Deliver Outputs – all in one interface.
+          Rapid Diagnostic Factory empowers users with AI-driven, cross-platform
+          insights from Accenture's diagnostic tools, high-impact opportunities
+          and tailored recommendations—accelerating decision-making
         </p>
       </div>
 
@@ -78,9 +91,9 @@ const RapidDiagnosticMVP = () => {
 
       {/* Launch Button */}
       <div className="launch-buttons mt-5">
-        <Link to="/launch-assessment" className="launch-button">
+        <button className="launch-button" onClick={handleLaunchClick}>
           Launch New Assessment
-        </Link>
+        </button>
       </div>
     </div>
   );

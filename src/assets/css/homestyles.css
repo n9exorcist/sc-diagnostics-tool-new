@@ -247,7 +247,7 @@ body {
 /* Carousel */
 .carousel {
   position: relative;
-  display: flex;
+  display: inline-block;
   align-items: center;
   justify-content: center;
   margin: 0 auto;

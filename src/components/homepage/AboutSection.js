@@ -5,8 +5,9 @@ const AboutSection = () => {
     <section className="about-section d-flex flex-column align-items-center">
       <h2>About SC Rapid Diagnostics Factory Tool</h2>
       <p>
-        Request Access, Define Project, Benchmark KPIs, Conduct Financial
-        Analysis, Diagnostics & Deliver Outputs – all in one interface.
+        Rapid Diagnostic Factory empowers users with AI-driven, cross-platform
+        insights from Accenture's diagnostic tools, high-impact opportunities
+        and tailored recommendations—accelerating decision-making
       </p>
     </section>
   );

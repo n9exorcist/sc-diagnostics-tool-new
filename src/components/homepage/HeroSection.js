@@ -7,8 +7,8 @@ const HeroSection = () => {
     <section className="hero-section">
       <h1>SC Rapid Diagnostics Factory</h1>
       <p>
-        Accelerate diagnostics and benchmarking for Supply Chain capabilities
-        using Gen AI
+        Transform insights into impact with a connected, GenAI-diagnostic
+        platform built on Accenture’s leading capabilities.
       </p>
       <div className="search-bar">
         <select>
