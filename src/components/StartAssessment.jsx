@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "../assets/css/StartAssessment.css"; // Import your CSS file for styling
 import { useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 
 const StartAssessment = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -27,28 +29,14 @@ const StartAssessment = () => {
 
   return (
     <div className="start-assessment container">
-      <h2>Start a New Assessment</h2>
+      <h2 className="mt-3">Start a New Assessment</h2>
 
-      {/* Header Section */}
       <div className="header">
         <button
           className="back-button"
           onClick={() => navigate("/launch-assessment")}
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            fill="currentColor"
-            className="bi bi-arrow-left"
-            viewBox="0 0 16 16"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M9.854 4.646a.5.5 0 0 1 0 .708L4.707 8l5.147 5.146a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708.708L9.854 4.646z"
-            />
-          </svg>
-          Back
+          <FontAwesomeIcon icon={faChevronLeft} /> Back
         </button>
       </div>
 
