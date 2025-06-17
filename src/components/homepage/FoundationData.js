@@ -26,8 +26,7 @@ const FoundationData = () => {
         <div>
           <h3>KPI & Maturity Mapping</h3>
           <p>
-            Standard Industry Logical Operating Model and Business process model
-            aKey KPIs across Plan, Source, Deliver mapped against internal and
+            Key KPIs across Plan, Source, Deliver mapped against internal and
             external benchmarks for rapid maturity assessments
           </p>
           <h3>Value Levers and Value Drivers</h3>
@@ -35,8 +34,6 @@ const FoundationData = () => {
             Industry and platform-specific value chain repositories consisting
             of value levers, value drivers, and KPIs
           </p>
-          <h3>Industry and Technology Trends</h3>
-          <p>Future Systems research, Industry benchmark data, etc.</p>
         </div>
       </div>
     </section>
