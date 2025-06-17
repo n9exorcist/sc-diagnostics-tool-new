@@ -31,14 +31,14 @@ const StartAssessment = () => {
     <div className="start-assessment container">
       <h2 className="mt-3">Start a New Assessment</h2>
 
-      <div className="header">
+      {/* <div className="header">
         <button
           className="back-button"
           onClick={() => navigate("/launch-assessment")}
         >
           <FontAwesomeIcon icon={faChevronLeft} /> Back
         </button>
-      </div>
+      </div> */}
 
       <div className="steps-container">
         {/* Progress Indicator */}
