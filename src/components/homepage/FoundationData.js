@@ -6,23 +6,29 @@ const FoundationData = () => {
       <h2>FOUNDATION DATA</h2>
       <div className="data-columns">
         <div>
-          <h3>Accenture Research Benchmarks</h3>
-          <p>Future Systems research, Industry benchmark data, etc.</p>
-          <h3>Analysts Benchmarks</h3>
+          <h3>Integrated Accenture Capability Data</h3>
           <p>
-            External analyst benchmark data such as Gartner, Forrester, etc.
+            Unified ingestion of structured inputs from myDiagnostic, VIP, CDI,
+            and peer benchmarks to eliminate silos and drive holistic insights
           </p>
-          <h3>Business Process KPIs</h3>
+          <h3>Sales & Operational Data Feed</h3>
           <p>
-            Clear mapping of the business process and IT KPIs for better value
-            realization
+            Raw ERP/excel-based transactional data (e.g., sales orders, OTIF) to
+            enrich diagnostic accuracy with real-time operational metrics
+          </p>
+          <h3>GenAI-Enriched Knowledge Base</h3>
+          <p>
+            Combined insights from past client projects, SME inputs, and
+            SharePoint repositories, layered with GenAI to contextualize and
+            augment recommendations
           </p>
         </div>
         <div>
-          <h3>Industry Logical Operating Model</h3>
+          <h3>KPI & Maturity Mapping</h3>
           <p>
             Standard Industry Logical Operating Model and Business process model
-            and hierarchy
+            aKey KPIs across Plan, Source, Deliver mapped against internal and
+            external benchmarks for rapid maturity assessments
           </p>
           <h3>Value Levers and Value Drivers</h3>
           <p>

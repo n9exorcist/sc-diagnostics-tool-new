@@ -9,7 +9,7 @@ const CircularDiagram = () => {
           <h3>INPUT</h3>
           <p>
             Maturity Assessment, Peer Finacial Analysis, KPI Benchmarks, Leading
-            Practices, Manual Prompts
+            Practices, Manual Prompts. Data Inputs
           </p>
         </div>
 
