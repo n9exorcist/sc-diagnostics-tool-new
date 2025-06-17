@@ -1,11 +1,18 @@
 import React, { useState } from "react";
-import "../assets/css/AssessmentLauncher.css";
+import "../assets/css/AssessmentLauncher.css"; // Import your CSS file for styling
+import StartAssessment from "./StartAssessment";
+import { Link } from "react-router-dom";
 
 const AssessmentLauncher = () => {
   const [selectedTab, setSelectedTab] = useState("new");
+  const [showAssessmentForm, setShowAssessmentForm] = useState(false);
+
+  const handleStartAssessment = () => {
+    setShowAssessmentForm(true);
+  };
 
   return (
-    <div className="assessment-launcher">
+    <div className="assessment-launcher container">
       <h2>Launch Assessment</h2>
       <div className="tabs">
         <button
@@ -37,7 +44,17 @@ const AssessmentLauncher = () => {
               Begin a fresh assessment by defining project details and setting
               up your supply chain diagnostics.
             </p>
-            <button className="launch-button">Start Now</button>
+
+            <Link
+              to="/start-assessment"
+              onClick={handleStartAssessment}
+              className="start-button"
+            >
+              Start Now
+            </Link>
+
+            {/* Show Assessment Form when button is clicked */}
+            {showAssessmentForm && <StartAssessment />}
           </div>
         )}
         {selectedTab === "existing" && (

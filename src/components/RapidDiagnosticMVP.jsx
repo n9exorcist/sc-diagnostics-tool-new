@@ -52,7 +52,7 @@ const RapidDiagnosticMVP = ({ isLoading, onButtonClick }) => {
   };
 
   return (
-    <div className="homepage-container">
+    <div className="homepage-container d-flex align-items-center justify-content-center">
       {/* Intro Section */}
       <div className="tool-intro d-none">
         <h1>SC Rapid Diagnostics Factory Tool</h1>
@@ -68,7 +68,7 @@ const RapidDiagnosticMVP = ({ isLoading, onButtonClick }) => {
       </div>
 
       {/* Manual Carousel */}
-      <div className="card-carousel-section position-relative">
+      {/* <div className="card-carousel-section position-relative">
         <button className="carousel-button previous" onClick={handlePrev}>
           ← Previous
         </button>
@@ -87,10 +87,10 @@ const RapidDiagnosticMVP = ({ isLoading, onButtonClick }) => {
         <button className="carousel-button next" onClick={handleNext}>
           Next →
         </button>
-      </div>
+      </div> */}
 
       {/* Launch Button */}
-      <div className="launch-buttons mt-5">
+      <div className="launch-buttons">
         <button className="launch-button" onClick={handleLaunchClick}>
           Launch New Assessment
         </button>

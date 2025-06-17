@@ -9,6 +9,7 @@ import CardDetailPage from "./components/CardDetailPage";
 import AssessmentLauncher from "./components/AssessmentLauncher";
 import BenchmarkingData from "./components/BenchmarkingData"; // New BenchmarkingData component
 import HomeScreen from "./components/HomeScreen"; // Home screen component
+import StartAssessment from "./components/StartAssessment";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/tool" element={<Dashboard />} />
           <Route path="/card/:cardType" element={<CardDetailPage />} />
           <Route path="/launch-assessment" element={<AssessmentLauncher />} />
+          <Route path="/start-assessment" element={<StartAssessment />} />
         </Routes>
       </>
     </Router>

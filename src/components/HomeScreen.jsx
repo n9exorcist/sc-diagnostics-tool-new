@@ -33,15 +33,15 @@ const HomeScreen = () => {
   return (
     <div className="home-screen-map">
       <HeroSection />
-      <RapidDiagnosticMVP
-        isLoading={isLoading}
-        onButtonClick={handleButtonClick}
-      />
+
       <AboutSection />
       <CircularDiagram />
       <FoundationData />
       {/* <StatisticsSection /> */}
-
+      <RapidDiagnosticMVP
+        isLoading={isLoading}
+        onButtonClick={handleButtonClick}
+      />
       <Footer />
       {/* Loader */}
       {isLoading && <Loader message={loaderMessage} />}

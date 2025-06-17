@@ -8,7 +8,6 @@ body {
 
 /* Header */
 .header {
-  background-color: #ff00ff;
   color: white;
   display: flex;
   justify-content: space-between;
