@@ -1,11 +1,69 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+
+const chartData = [
+  {
+    title: "Maturity Assessment",
+    src: "/figure1.jpg",
+    alt: "Maturity Assessment",
+  },
+  {
+    title: "KPI Calculation & Visualization",
+    src: "/figure2.jpg",
+    alt: "KPI Calculation & Visualization",
+  },
+  {
+    title: "Financial Peer Analysis",
+    src: "/figure3.jpg",
+    alt: "Financial Peer Analysis",
+  },
+  {
+    title: "KPI Benchmarking",
+    src: "/figure4.jpg",
+    alt: "KPI Benchmarking",
+  },
+  {
+    title: "Top Key Recommendations",
+    src: "/figure5.jpg",
+    alt: "Top Key Recommendations",
+  },
+  {
+    title: "Top-down Business case",
+    src: "/figure6.jpg",
+    alt: "Top-down Business case",
+  },
+];
 
 const CircularDiagram = () => {
+  const [startIndex, setStartIndex] = useState(0);
+  const visibleCount = 3;
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setStartIndex(
+        (prevIndex) => (prevIndex + visibleCount) % chartData.length
+      );
+    }, 3000); // 5 seconds
+
+    return () => clearInterval(interval); // Cleanup
+  }, []);
+
+  // Get the current visible charts
+  const visibleCharts = chartData.slice(startIndex, startIndex + visibleCount);
+
+  // If near end, wrap around to show remaining
+  const chartsToRender =
+    visibleCharts.length < visibleCount
+      ? [
+          ...visibleCharts,
+          ...chartData.slice(0, visibleCount - visibleCharts.length),
+        ]
+      : visibleCharts;
   return (
     <section className="circular-diagram d-flex flex-column align-items-center">
       <div className="diagram-container position-relative">
         {/* Input Section */}
         <div className="input-section">
+          <h3>INPUT</h3>
           <div className="input-grid">
             <div className="input-card">
               <h3>Maturity Assessment</h3>
@@ -64,12 +122,35 @@ const CircularDiagram = () => {
         {/* Output Section */}
         <div className="output-section">
           <h3>OUTPUT</h3>
-          <p>
-            Benchmark Against Industry Peers, Identify Current Maturity Level,
-            Prioritize Areas of Improvement, Identify Recommendations for Value
-            Creation, Prioritize Initiatives
-          </p>
+          <div className="output-content">
+            {chartsToRender.map((chart, index) => (
+              <div className="chart-container" key={index}>
+                <h4>{chart.title}</h4>
+                <img src={chart.src} alt={chart.alt} />
+              </div>
+            ))}
+          </div>
         </div>
+
+        {/* Left Arrow */}
+        <img
+          src="/arrow.png"
+          alt="Left Arrow"
+          className="left-arrow left-arrow-left"
+        />
+
+        {/* Right Arrow */}
+        <img
+          src="/arrow.png"
+          alt="Right Arrow"
+          className="left-arrow left-arrow-right"
+        />
+        {/* Downward Arrow Below Central Circle */}
+        <img
+          src="/arrow.png"
+          alt="Downward Arrow"
+          className="left-arrow down-arrow"
+        />
       </div>
     </section>
   );

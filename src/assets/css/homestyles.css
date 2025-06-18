@@ -396,6 +396,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: stretch; /* Ensure all sections stretch to the same height */
+  position: relative;
 }
 
 .input-section,
@@ -411,34 +412,34 @@ body {
   justify-content: center;
 }
 
+.output-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.chart-container {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.chart-container h4 {
+  margin-bottom: 10px;
+  color: #ff00ff;
+}
+
+.chart-container img {
+  max-width: 100%;
+  height: auto;
+}
+
 .central-content {
   width: 50%; /* Adjust as needed */
   text-align: center;
   display: flex;
   align-items: center;
-}
-
-/* Arrow Styles */
-.diagram-container::after,
-.diagram-container::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 20px 0 20px 30px;
-  border-color: transparent transparent transparent #ff00ff; /* Accenture Purple */
-}
-
-.diagram-container::before {
-  left: 30%; /* Adjust as needed */
-}
-
-.diagram-container::after {
-  right: 30%; /* Adjust as needed */
-  border-color: transparent transparent transparent #ff00ff; /* Accenture Purple */
 }
 
 .input-section h3,
@@ -523,19 +524,6 @@ body {
   align-items: center;
   justify-content: center;
   border: 2px solid #ff00ff; /* Accenture Purple Border */
-}
-
-.central-circle-container::after {
-  content: "";
-  position: absolute;
-  bottom: -20%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 30px 20px 0 20px; /* Adjust sizes as needed */
-  border-color: #ff00ff transparent transparent transparent; /* Accenture Purple */
 }
 
 .circle {
@@ -669,6 +657,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  align-items: stretch;
   gap: 40px;
   padding: 20px;
 }
@@ -715,5 +704,45 @@ body {
 
   .data-columns div {
     width: 100%;
+  }
+}
+
+/* Arrow Styles */
+.left-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px; /* Adjust as needed */
+  height: auto;
+}
+
+/* Left Arrow (Pointing Left) */
+.left-arrow-left {
+  left: 30%;
+  transform: translateX(-50%);
+}
+
+/* Right Arrow (Pointing Right) */
+.left-arrow-right {
+  right: 30%;
+  transform: translateX(50%);
+}
+
+/* Downward Arrow (Pointing Down) */
+.down-arrow {
+  bottom: -40px; /* Position just below the circle */
+  left: 50%;
+  transform: translateX(-50%) rotate(90deg); /* Rotate to point downward */
+  position: absolute;
+  width: 40px; /* Adjust as needed */
+  height: auto;
+  top: 76% !important;
+}
+
+@media (max-width: 768px) {
+  .left-arrow-left,
+  .left-arrow-right,
+  .down-arrow {
+    display: none; /* Hide on small screens if needed */
   }
 }
