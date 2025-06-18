@@ -395,25 +395,50 @@ body {
 .diagram-container {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  position: relative;
-  background-image: url("../../../public/InOutWings.png");
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
+  align-items: stretch; /* Ensure all sections stretch to the same height */
 }
 
 .input-section,
 .output-section {
-  width: 33%;
-  background-color: #fff;
+  background-color: #ffffff;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  font-size: 14px;
-  color: #333;
+  flex: 1; /* Allow sections to grow equally */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.central-content {
+  width: 50%; /* Adjust as needed */
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+
+/* Arrow Styles */
+.diagram-container::after,
+.diagram-container::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 20px 0 20px 30px;
+  border-color: transparent transparent transparent #ff00ff; /* Accenture Purple */
+}
+
+.diagram-container::before {
+  left: 30%; /* Adjust as needed */
+}
+
+.diagram-container::after {
+  right: 30%; /* Adjust as needed */
+  border-color: transparent transparent transparent #ff00ff; /* Accenture Purple */
 }
 
 .input-section h3,
@@ -494,11 +519,23 @@ body {
   border-radius: 50%;
   background-color: #ffffff;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
   border: 2px solid #ff00ff; /* Accenture Purple Border */
+}
+
+.central-circle-container::after {
+  content: "";
+  position: absolute;
+  bottom: -20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 30px 20px 0 20px; /* Adjust sizes as needed */
+  border-color: #ff00ff transparent transparent transparent; /* Accenture Purple */
 }
 
 .circle {

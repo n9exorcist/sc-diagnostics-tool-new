@@ -2,8 +2,8 @@ import React from "react";
 
 const CircularDiagram = () => {
   return (
-    <section className="circular-diagram">
-      <div className="diagram-container">
+    <section className="circular-diagram d-flex flex-column align-items-center">
+      <div className="diagram-container position-relative">
         {/* Input Section */}
         <div className="input-section">
           <div className="input-grid">
