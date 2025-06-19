@@ -10,6 +10,7 @@ import AssessmentLauncher from "./components/AssessmentLauncher";
 import BenchmarkingData from "./components/BenchmarkingData"; // New BenchmarkingData component
 import HomeScreen from "./components/HomeScreen"; // Home screen component
 import StartAssessment from "./components/StartAssessment";
+import ViewAssessment from "./components/ViewAssessment";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/card/:cardType" element={<CardDetailPage />} />
           <Route path="/launch-assessment" element={<AssessmentLauncher />} />
           <Route path="/start-assessment" element={<StartAssessment />} />
+          <Route path="/assessment/:id" element={<ViewAssessment />} />
         </Routes>
       </>
     </Router>
