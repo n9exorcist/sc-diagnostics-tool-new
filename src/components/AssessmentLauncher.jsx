@@ -17,9 +17,9 @@ const AssessmentLauncher = () => {
   };
 
   return (
-    <div className="assessment-launcher">
+    <div className="assessment-launcher container">
       <h2>Launch Assessment</h2>
-      <div className="tabs">
+      <div className="tabs d-flex justify-content-center">
         <button
           className={`tab ${selectedTab === "new" ? "active" : ""}`}
           onClick={() => setSelectedTab("new")}

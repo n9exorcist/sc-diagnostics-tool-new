@@ -10,7 +10,7 @@ const HeroSection = () => {
         Transform insights into impact with a connected, GenAI-diagnostic
         platform built on Accenture’s leading capabilities.
       </p>
-      <div className="search-bar">
+      {/* <div className="search-bar">
         <select>
           <option>All Offerings</option>
         </select>
@@ -18,7 +18,7 @@ const HeroSection = () => {
         <button className="search-button">
           <FontAwesomeIcon icon={faSearch} />
         </button>
-      </div>
+      </div> */}
     </section>
   );
 };

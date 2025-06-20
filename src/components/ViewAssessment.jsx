@@ -10,6 +10,9 @@ const ViewAssessment = () => {
   const [selectedTab, setSelectedTab] = useState("file-upload");
   const [currentPage, setCurrentPage] = useState(1);
 
+  const [surveyResponseFile, setSurveyResponseFile] = useState(null);
+  const [roleDeptFile, setRoleDeptFile] = useState(null);
+
   const capitalizeFirstLetter = (str) =>
     str.charAt(0).toUpperCase() + str.slice(1);
 
@@ -52,7 +55,12 @@ const ViewAssessment = () => {
               <div className="file-upload">
                 <label htmlFor="survey-response">Survey Response File*</label>
                 <div className="file-input-container">
-                  <input type="file" id="survey-response" accept=".xlsx" />
+                  <input
+                    type="file"
+                    id="survey-response"
+                    accept=".xlsx"
+                    onChange={(e) => setSurveyResponseFile(e.target.files[0])}
+                  />
                   <span>Drag and drop file here or click to browse</span>
                   <button className="browse-button">Browse Files</button>
                 </div>
@@ -61,12 +69,32 @@ const ViewAssessment = () => {
                   <option value="Sheet1">Sheet1</option>
                   <option value="Sheet2">Sheet2</option>
                 </select>
+
+                {/* Display uploaded file status */}
+                {surveyResponseFile && (
+                  <div className="uploaded-file mt-2">
+                    <span>📄 Uploaded: {surveyResponseFile.name}</span>
+                    <button
+                      type="button"
+                      className="btn btn-sm btn-outline-danger ms-2"
+                      onClick={() => setSurveyResponseFile(null)}
+                      aria-label="Remove file"
+                    >
+                      🗑️
+                    </button>
+                  </div>
+                )}
               </div>
 
               <div className="file-upload">
                 <label htmlFor="role-dept">Role & Department File*</label>
                 <div className="file-input-container">
-                  <input type="file" id="role-dept" accept=".xlsx" />
+                  <input
+                    type="file"
+                    id="role-dept"
+                    accept=".xlsx"
+                    onChange={(e) => setRoleDeptFile(e.target.files[0])}
+                  />
                   <span>Drag and drop file here or click to browse</span>
                   <button className="browse-button">Browse Files</button>
                 </div>
@@ -75,6 +103,21 @@ const ViewAssessment = () => {
                   <option value="Sheet1">Sheet1</option>
                   <option value="Sheet2">Sheet2</option>
                 </select>
+
+                {/* Display uploaded file status */}
+                {roleDeptFile && (
+                  <div className="uploaded-file mt-2">
+                    <span>📄 Uploaded: {roleDeptFile.name}</span>
+                    <button
+                      type="button"
+                      className="btn btn-sm btn-outline-danger ms-2"
+                      onClick={() => setRoleDeptFile(null)}
+                      aria-label="Remove file"
+                    >
+                      🗑️
+                    </button>
+                  </div>
+                )}
               </div>
             </div>
           </div>
